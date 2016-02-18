@@ -1,0 +1,42 @@
+<div class="page-header" style="text-align: center">
+	<h1>
+		<a class="btn btn-lg btn-success" href="/#/ranking">
+			<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+		</a>
+		 New player
+	</h1>
+</div>
+
+<br>
+<form name="playerForm" ng-submit="submitForm(playerForm.$valid)" novalidate> 
+	<div class="input-group input-group-lg">
+	  	<span class="input-group-addon" id="sizing-addon1" >Name</span>
+	  	<input name="name" type="text" class="form-control" ng-model="player.name" required>
+    </div>
+    <div ng-messages="playerForm.name.$error" ng-show="showErrors">
+			<p ng-message="required">Name is required.</p>
+	</div>
+
+	<br>
+	<div class="input-group input-group-lg">
+	  <span class="input-group-addon" id="sizing-addon1">Lastname</span>
+	  <input name="lastname" type="text" class="form-control" ng-model="player.lastname">
+	</div>
+	<div ng-messages="playerForm.lastname.$error" ng-show="showErrors">
+			<p ng-message="required">Lastname is required.</p>
+	</div>
+
+	<br>
+	<div class="input-group input-group-lg">
+	  <span class="input-group-addon" id="sizing-addon1">URL image</span>
+	  <input type="text" class="form-control" ng-model="player.url">
+	</div>
+
+	<br>
+	<div class="btn-group btn-group-justified" role="group">
+		<div class="btn-group" role="group">
+			<!--<input type="button" class="btn btn-lg btn-success" ng-disabled="myForm.name.$invalid" value="Create" ng-click="newPlayer()"></input>-->
+			<input type="submit" class="btn btn-lg btn-success" value="Create"></input>
+		</div>
+	</div>
+</form>

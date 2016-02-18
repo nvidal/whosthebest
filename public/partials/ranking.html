@@ -1,0 +1,28 @@
+<div class="page-header text-center" >
+	<h1>Player's Ranking</h1>
+</div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading text-center" ><h5>Top 10 - Rankig</h5></div>
+
+  <!-- Table -->
+  <table class="table">
+  	<th>#</th>
+  	<th>Player</th>
+  	<th>Points</th>
+
+    <tr ng-repeat="player in players | orderBy : '-points'">
+    	<td>{{$index +1}}</td>
+    	<td>{{player.name}} {{player.lastname}}</td>
+    	<td>{{player.points | number:2}}</td>
+    </tr>
+  </table>
+</div>
+
+
+<div class="btn-group btn-group-justified" role="group">
+		<a href='/#/vote' class="btn btn-success btn-lg" role="button"> Vote! </a>
+
+		<!--<a href='/#/addPlayer' class="btn btn-primary btn-lg"> + Player </a>-->
+</div>

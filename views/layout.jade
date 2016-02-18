@@ -1,0 +1,14 @@
+doctype html
+html(ng-app='WTBApp')
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/angular/angular.js')
+    script(src='/javascripts/angular/angular-resource.js')
+    script(src='/javascripts/angular/angular-route.js')
+    link(rel='stylesheet', href='/javascripts/bootstrap/css/bootstrap.min.css')
+
+    script(src='/javascripts/wtbApp.js')
+    script(src='/javascripts/controllers.js')
+  body
+    block content
