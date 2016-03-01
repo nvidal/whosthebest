@@ -5,4 +5,116 @@ body {
 
 a {
   color: #00B7FF;
+}/*
+ * Styles.css
+ */
+
+body {
+    background: #f8f8f8 url(../images/pattern.jpg);
+    border-top: 4px solid #518D8A;
+    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #555;
+    text-align: left;
 }
+
+
+strong { font-weight: 700; }
+a:hover { text-decoration: none; }
+
+.logo h2 { margin-top: 7px; padding-left: 50px; font-size: 28px; font-weight: 400; color: #555; text-transform: uppercase; }
+
+.logo a {
+    display: inline-block;
+    width: 166px;
+    height: 33px;
+    margin-top: 10px;
+    /*background: url(../img/logo.png) left top no-repeat;*/
+    color: #555;
+    text-indent: -9999px;
+    text-decoration: none;
+    -o-transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+    -ms-transition: all .2s;
+}
+.logo a:hover { color: #518d8a; }
+
+::-moz-selection { background: #518d8a; color: #fff; text-shadow: none; }
+::selection { background: #518d8a; color: #fff; text-shadow: none; }
+
+
+
+/***** Footer *****/
+
+footer {
+    margin-top: 60px;
+    padding: 30px 0;
+    background: #2d2d2d url(../images/pattern-3.jpg);
+    -moz-box-shadow: 0 1px 5px 0 rgba(0,0,0,.3) inset;
+    -webkit-box-shadow: 0 1px 5px 0 rgba(0,0,0,.3) inset;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.3) inset;
+    color: #aaa;
+}
+
+footer h3 {
+    margin-left: 50px;
+    padding-bottom: 10px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #ddd;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+}
+
+footer p { line-height: 30px; }
+
+footer a {
+    color: #ddd;
+    -o-transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+    -ms-transition: all .2s;
+}
+footer a:hover { color: #aaa; }
+
+.social-links {
+    margin: 0 50px 0 50px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.copyright {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+
+@media (max-width: 767px) {
+
+    body { padding-left: 0; padding-right: 0; }
+
+    .logo h2 { padding-left: 0; text-align: center; }
+
+    .language p { margin-bottom: 11px; padding-right: 0; text-align: center; }
+    
+    footer { padding-top: 0; }
+
+    footer h3 { margin-top: 40px; }
+
+    footer h3, .copyright p { margin-left: 50px; margin-right: 50px; }
+
+    .social-links { display: none; margin-top: 45px; }
+
+}
+
+
+@media (max-width: 480px) {
+
+}
+
+
+
+
+

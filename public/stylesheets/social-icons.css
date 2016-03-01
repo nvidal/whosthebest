@@ -1,0 +1,84 @@
+
+
+.social-links a {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin: 5px;
+}
+
+
+.social-links a.twitter { background: url(../images/social-icons/twitter-gray.png); }
+.social-links a.dribbble { background: url(../images/social-icons/dribbble-gray.png); }
+.social-links a.rss { background: url(../images/social-icons/rss-gray.png); }
+.social-links a.pinterest { background: url(../images/social-icons/pinterest-gray.png); }
+.social-links a.digg { background: url(../images/social-icons/digg-gray.png); }
+.social-links a.flickr { background: url(../images/social-icons/flickr-gray.png); }
+.social-links a.forrst { background: url(../images/social-icons/forrst-gray.png); }
+.social-links a.vimeo { background: url(../images/social-icons/vimeo-gray.png); }
+.social-links a.reddit { background: url(../images/social-icons/reddit-gray.png); }
+.social-links a.linkedin { background: url(../images/social-icons/linkedin-gray.png); }
+.social-links a.facebook { background: url(../images/social-icons/facebook-gray.png); }
+.social-links a.paypal { background: url(../images/social-icons/paypal-gray.png); }
+.social-links a.stumbleupon { background: url(../images/social-icons/stumbleupon-gray.png); }
+.social-links a.email { background: url(../images/social-icons/email-gray.png); }
+.social-links a.deviantart { background: url(../images/social-icons/deviantart-gray.png); }
+.social-links a.netvibes { background: url(../images/social-icons/netvibes-gray.png); }
+.social-links a.yahoo { background: url(../images/social-icons/yahoo-gray.png); }
+.social-links a.github { background: url(../images/social-icons/github-gray.png); }
+.social-links a.addthis { background: url(../images/social-icons/addthis-gray.png); }
+.social-links a.behance { background: url(../images/social-icons/behance-gray.png); }
+.social-links a.blogger { background: url(../images/social-icons/blogger-gray.png); }
+.social-links a.slashdot { background: url(../images/social-icons/slashdot-gray.png); }
+.social-links a.technorati { background: url(../images/social-icons/technorati-gray.png); }
+.social-links a.googleplus { background: url(../images/social-icons/googleplus-gray.png); }
+.social-links a.apple { background: url(../images/social-icons/apple-gray.png); }
+.social-links a.myspace { background: url(../images/social-icons/myspace-gray.png); }
+.social-links a.sharethis { background: url(../images/social-icons/sharethis-gray.png); }
+.social-links a.yelp { background: url(../images/social-icons/yelp-gray.png); }
+.social-links a.delicious { background: url(../images/social-icons/delicious-gray.png); }
+.social-links a.lastfm { background: url(../images/social-icons/lastfm-gray.png); }
+.social-links a.youtube { background: url(../images/social-icons/youtube-gray.png); }
+.social-links a.skype { background: url(../images/social-icons/skype-gray.png); }
+.social-links a.tumblr { background: url(../images/social-icons/tumblr-gray.png); }
+.social-links a.aim { background: url(../images/social-icons/aim-gray.png); }
+.social-links a.google { background: url(../images/social-icons/google-gray.png); }
+
+
+.social-links a.twitter:hover { background: url(../images/social-icons/twitter.png); }
+.social-links a.dribbble:hover { background: url(../images/social-icons/dribbble.png); }
+.social-links a.rss:hover { background: url(../images/social-icons/rss.png); }
+.social-links a.pinterest:hover { background: url(../images/social-icons/pinterest.png); }
+.social-links a.digg:hover { background: url(../images/social-icons/digg.png); }
+.social-links a.flickr:hover { background: url(../images/social-icons/flickr.png); }
+.social-links a.forrst:hover { background: url(../images/social-icons/forrst.png); }
+.social-links a.vimeo:hover { background: url(../images/social-icons/vimeo.png); }
+.social-links a.reddit:hover { background: url(../images/social-icons/reddit.png); }
+.social-links a.linkedin:hover { background: url(../images/social-icons/linkedin.png); }
+.social-links a.facebook:hover { background: url(../images/social-icons/facebook.png); }
+.social-links a.paypal:hover { background: url(../images/social-icons/paypal.png); }
+.social-links a.stumbleupon:hover { background: url(../images/social-icons/stumbleupon.png); }
+.social-links a.email:hover { background: url(../images/social-icons/email.png); }
+.social-links a.deviantart:hover { background: url(../images/social-icons/deviantart.png); }
+.social-links a.netvibes:hover { background: url(../images/social-icons/netvibes.png); }
+.social-links a.yahoo:hover { background: url(../images/social-icons/yahoo.png); }
+.social-links a.github:hover { background: url(../images/social-icons/github.png); }
+.social-links a.addthis:hover { background: url(../images/social-icons/addthis.png); }
+.social-links a.behance:hover { background: url(../images/social-icons/behance.png); }
+.social-links a.blogger:hover { background: url(../images/social-icons/blogger.png); }
+.social-links a.slashdot:hover { background: url(../images/social-icons/slashdot.png); }
+.social-links a.technorati:hover { background: url(../images/social-icons/technorati.png); }
+.social-links a.googleplus:hover { background: url(../images/social-icons/googleplus.png); }
+.social-links a.apple:hover { background: url(../images/social-icons/apple.png); }
+.social-links a.myspace:hover { background: url(../images/social-icons/myspace.png); }
+.social-links a.sharethis:hover { background: url(../images/social-icons/sharethis.png); }
+.social-links a.yelp:hover { background: url(../images/social-icons/yelp.png); }
+.social-links a.delicious:hover { background: url(../images/social-icons/delicious.png); }
+.social-links a.lastfm:hover { background: url(../images/social-icons/lastfm.png); }
+.social-links a.youtube:hover { background: url(../images/social-icons/youtube.png); }
+.social-links a.skype:hover { background: url(../images/social-icons/skype.png); }
+.social-links a.tumblr:hover { background: url(../images/social-icons/tumblr.png); }
+.social-links a.aim:hover { background: url(../images/social-icons/aim.png); }
+.social-links a.google:hover { background: url(../images/social-icons/google.png); }
+
+

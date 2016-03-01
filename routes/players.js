@@ -33,13 +33,6 @@ router.get('/random', function(req, res){
 	Player.find({}, function(err, players){
 		if (err) throw err;
 
-		if (players.length < 2){
-			console.log("length "+ players.length);
-			res.json({});
-			return;
-		}
-			
-
 		var num = Math.floor(Math.random() * players.length);
 		var num2 = num;
 		while (num === num2){
@@ -120,7 +113,7 @@ router.post('/vote', function(req, res){
 			if (err) throw err;
 
 			//var result = {player, player2};
-			var result = player;
+			var result = player2;
 			res.json(result);
 		});
 	});
