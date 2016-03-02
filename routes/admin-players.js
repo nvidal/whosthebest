@@ -1,3 +1,5 @@
+//http://code.tutsplus.com/tutorials/authenticating-nodejs-applications-with-passport--cms-21619
+
 var express = require('express');
 var router = express.Router();
 

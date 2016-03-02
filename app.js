@@ -13,11 +13,18 @@ var admin_players = require('./routes/admin-players');
 
 var app = express();
 
+//PASSPORT
+var passport = require('passport');
+var expressSession = require('express-session');
+app.use(expressSession({secret: 'mySecretKey'}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 //MONGODB
 mongoose = require('mongoose'),
 fs = require('fs');
 
-var mongoUri = 'mongodb://nacho:nacho@ds011258.mongolab.com:11258/heroku_6g7p6vrk';//'mongodb://localhost:27017/WTB';
+var mongoUri = 'mongodb://localhost:27017/WTB';//'mongodb://nacho:nacho@ds011258.mlab.com:11258/heroku_6g7p6vrk';//'mongodb://nacho:nacho@ds011258.mongolab.com:11258/heroku_6g7p6vrk';//'mongodb://localhost:27017/WTB';
 mongoose.connect(mongoUri);
 var db = mongoose.connection;
 db.on('error', function () {

@@ -6,9 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-
-var admin_players = require('./routes/admin-players');
+//var users = require('./routes/users');
 var players = require('./routes/players');
+var admin_players = require('./routes/admin-players');
 
 
 var app = express();
@@ -17,7 +17,7 @@ var app = express();
 mongoose = require('mongoose'),
 fs = require('fs');
 
-var mongoUri = 'http://heroku_6g7p6vrk:96im7v9uge8vlqvmicnq2udddb@ds011258.mongolab.com:11258/heroku_6g7p6vrk'; //'mongodb://localhost:27017/WTB';
+var mongoUri = 'mongodb://nacho:nacho@ds011258.mlab.com:11258/heroku_6g7p6vrk';//'mongodb://nacho:nacho@ds011258.mongolab.com:11258/heroku_6g7p6vrk';//'mongodb://localhost:27017/WTB';
 mongoose.connect(mongoUri);
 var db = mongoose.connection;
 db.on('error', function () {
