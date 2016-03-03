@@ -2,7 +2,7 @@ app = angular.module('admWTPApp', ['ngRoute', 'ngResource']);
 
 app.config(['$routeProvider', function($routeProvider){
 	$routeProvider
-	.when('/', {
+	.when('/list', {
 		templateUrl : 'views/list.html',
 		controller : 'PlayerCtrl'
 	})
@@ -15,6 +15,6 @@ app.config(['$routeProvider', function($routeProvider){
 		controller : 'PlayerCtrl'
 	})
 	.otherwise({
-		redirectTo : '/'
+		redirectTo : '/list'
 	})
 }]);
