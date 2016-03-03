@@ -2,6 +2,10 @@ app = angular.module('admWTPApp', ['ngRoute', 'ngResource']);
 
 app.config(['$routeProvider', function($routeProvider){
 	$routeProvider
+	.when('/', {
+		templateUrl : 'views/list.html',
+		controller : 'PlayerCtrl'
+	})
 	.when('/list', {
 		templateUrl : 'views/list.html',
 		controller : 'PlayerCtrl'

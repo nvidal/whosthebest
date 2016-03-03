@@ -11,26 +11,26 @@ router.get('/', function(req, res, next) {
 var isAuthenticated = function (req, res, next) {
   if (req.isAuthenticated())
     return next();
-  res.redirect('/adm');
+  res.redirect('/login');
 }
 
 /* GET adm page. */
-router.get('/adm/list', isAuthenticated, function(req, res, next) {
+router.get('/adm', isAuthenticated, function(req, res, next) {
   res.render('indexAdm', { title: 'Administration', user: req.user });
 });
 
 
 
 /* GET login page. */
-  router.get('/adm', function(req, res) {
+  router.get('/login', function(req, res) {
     // Display the Login page with any flash message, if any
     res.render('login', { message: req.flash('message') });
   });
  
   /* Handle Login POST */
   router.post('/login', passport.authenticate('login', {
-    successRedirect: '/adm/list',
-    failureRedirect: '/adm',
+    successRedirect: '/adm',
+    failureRedirect: '/login',
     failureFlash : true 
   }));
  
@@ -41,7 +41,7 @@ router.get('/adm/list', isAuthenticated, function(req, res, next) {
  
   /* Handle Registration POST */
   router.post('/signup', passport.authenticate('signup', {
-    successRedirect: '/adm/list',
+    successRedirect: '/adm',
     failureRedirect: '/signup',
     failureFlash : true 
   }));
