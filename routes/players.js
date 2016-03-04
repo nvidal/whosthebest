@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var config = require('../config');
 
 
 // GET getAll
@@ -42,14 +43,12 @@ router.get('/random', function(req, res){
 
 		// Jugador_1 = j1, Jugador_2 en [a ..i.. b]
 		var j1 = Math.floor(Math.random() * players.length);
-	console.log("J1: "+j1);
 		var a = j1;
 		var b = j1;
-		if ( players.length > 50)
-			var j = Math.floor(players.length / 10); //10%
+		if ( players.length > config.select.minLength)
+			var j = Math.floor(players.length / config.select.ventana); //10%
 		else
-			var j = 5;
-	console.log("J: "+j);
+			var j = config.select.minVentana;
 		var fin = false;
 		while (j>1 && !fin){
 			if (a-1 >0){
@@ -62,13 +61,11 @@ router.get('/random', function(req, res){
 			}
 			fin = (a == 0) && (b==players.length);
 		}
-	console.log("a: "+a+" b:"+b);
 		// Elijo random j2
 		var j2 = j1;
 		while (j1 === j2){
 			j2 = Math.floor(Math.random() * (b-a)) + a;
 		};
-	console.log("J2: "+j2);
 		var ranPlayer = [players[j1], players[j2]];
 		res.json(ranPlayer);
 	});
@@ -166,17 +163,15 @@ function calculatePoints(p1, p2, result){
 };
 
 // Retorna el nivel del jugador
-var LIMITE_NIVEL_PROTEGIDO = 30;
-var NIVEL_PROTEGIDO = 50;
 function obtenerNivel (player) {
 	//return 10;
-	if ( player.times < LIMITE_NIVEL_PROTEGIDO )
-			return NIVEL_PROTEGIDO;
+	if ( player.times < config.vote.LIMITE_NIVEL_PROTEGIDO )
+			return config.vote.NIVEL_PROTEGIDO;
 	else{
 		var aux = Math.round( player.points / 200); // 2000 = 10, 4000 = 20, 1000 = 5
 		if (aux < 1)
 			aux = 45;
-		return (NIVEL_PROTEGIDO - aux) / 2; // 2000 = 20, 4000 = 15, 1000 = 22.5, max = 2.5
+		return (config.vote.NIVEL_PROTEGIDO - aux) / 2; // 2000 = 20, 4000 = 15, 1000 = 22.5, max = 2.5
 	}
 };
 
