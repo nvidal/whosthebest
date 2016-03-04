@@ -1,10 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-//var monk = require('monk');
-//var db = monk('localhost:27017/WTB');
-
-
 
 // GET getAll
 router.get('/', function(req, res){
@@ -30,7 +26,7 @@ router.get('/top', function(req, res){
 router.get('/random', function(req, res){
 	//var collection = db.get('players');
 	Player = mongoose.model('Player');
-	Player.find({}, function(err, players){
+	/*Player.find({}, function(err, players){
 		if (err) throw err;
 
 		var num = Math.floor(Math.random() * players.length);
@@ -39,6 +35,41 @@ router.get('/random', function(req, res){
 			num2 = Math.floor(Math.random() * players.length);
 		};
 		var ranPlayer = [players[num], players[num2]];
+		res.json(ranPlayer);
+	});*/
+	Player.find({}).sort({points : -1}).exec(function(err, players){
+		if (err) throw err;
+
+		// Jugador_1 = j1, Jugador_2 en [a ..i.. b]
+		var j1 = Math.floor(Math.random() * players.length);
+	console.log("J1: "+j1);
+		var a = j1;
+		var b = j1;
+		if ( players.length > 50)
+			var j = Math.floor(players.length / 10); //10%
+		else
+			var j = 5;
+	console.log("J: "+j);
+		var fin = false;
+		while (j>1 && !fin){
+			if (a-1 >0){
+				a--;
+				j--;
+			}
+			if (b+1 < players.length){
+				b++;
+				j--;
+			}
+			fin = (a == 0) && (b==players.length);
+		}
+	console.log("a: "+a+" b:"+b);
+		// Elijo random j2
+		var j2 = j1;
+		while (j1 === j2){
+			j2 = Math.floor(Math.random() * (b-a)) + a;
+		};
+	console.log("J2: "+j2);
+		var ranPlayer = [players[j1], players[j2]];
 		res.json(ranPlayer);
 	});
 
