@@ -1,0 +1,180 @@
+<!-- OLD: Borrar 
+
+<div class="page-header" style=" text-align: center">
+	<h1 >
+		<a class="btn btn-lg btn-success" href="/#/ranking">
+			<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+		</a>
+		Who's The Best?
+	</h1>
+</div>
+
+<div class="row" >
+  
+  <div class="col-xs-6 col-md-6" >
+
+    <div class="thumbnail" >
+      <img src="{{player1.url}}" style="max-height : 300px">
+      <div class="caption">
+        <h3>{{player1.name}} {{player1.lastname}}</h3>
+    	<div class="btn-group btn-group-justified" role="group">
+    		<div class="btn-group" role="group">
+    			<button class="btn btn-primary btn-lg" role="button" ng-click="vot1()">
+    				{{player1.name}} {{player1.lastname}}
+    			</button>
+    		</div>
+    	</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-xs-6 col-md-6" >
+
+    <div class="thumbnail" >
+      <img src="{{player2.url}}"style="max-height : 300px" style="max-height : 300px">
+      <div class="caption">
+        <h3>{{player2.name}} {{player2.lastname}}</h3>
+        <p>
+        	<div class="btn-group btn-group-justified" role="group">
+        		<div class="btn-group" role="group">
+        			<button class="btn btn-primary btn-lg" role="button" ng-click="vot2()">
+        				{{player2.name}} {{player2.lastname}}
+        			</button>
+        		</div>
+        	</div>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</div> 
+
+-->
+
+
+<div class="page-header text-center" >
+	<h1>Who's the Best</h1>
+</div>
+
+
+
+<div class="container">
+  						
+	<div class="col-lg-6">
+		<div class="panel panel-info">
+			<div class="panel-heading text-center">
+				<h3 class="panel-title">{{player1.name}} {{player1.lastname}}</h3>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-6 col-lg-6 " align="center"> 
+						<img alt="Jugador" src="{{player1.url}}" class="img-circle" style="height : 200px;width: 200px"> 
+
+					</div>
+					<div class=" col-md-6 col-lg-6 "> 
+					  <table class="table table-user-information">
+						<tbody>
+						  <tr>
+							<td>Playing position::</td>
+							<td>-</td>
+						  </tr>
+						  <tr>
+							<td>Date of birth:</td>
+							<td>-</td>
+						  </tr>
+						  <tr>
+							<td>Place of birth:</td>
+							<td>-</td>
+						  </tr>
+						  <tr>
+							<td>Current team:</td>
+							<td>-</td>
+						  </tr>								  
+						</tbody>
+					  </table>
+					</div>
+					<div class="text-center">
+						<button class="btn btn-primary" role="button" ng-click="vot1()">
+			    				Vote
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-lg-6">
+		<div class="panel panel-success">
+			<div class="panel-heading text-center">
+				<h3 class="panel-title">{{player2.name}} {{player2.lastname}}</h3>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-6 col-lg-6 " align="center"> 
+						<img alt="Jugador" src="{{player2.url}}" class="img-circle" style="height : 200px; width: 200px"> 
+
+					</div>
+					<div class="col-md-6 col-lg-6 "> 
+					  <table class="table table-user-information">
+						<tbody>
+						  <tr>
+							<td>Playing position:</td>
+							<td>-</td>
+						  </tr>
+						  <tr>
+							<td>Date of birth:</td>
+							<td>-</td>
+						  </tr>
+						  <tr>
+							<td>Place of birth:</td>
+							<td>-</td>
+						  </tr>
+						  <tr>
+							<td>Current team:</td>
+							<td>-</td>
+						  </tr>								  
+						</tbody>
+					  </table>
+					</div>
+					<div class="text-center">
+						<button class="btn btn-success" role="button" ng-click="vot2()">
+			    				Vote
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<nav>
+	  <ul class="pager">
+		<li><a href="#/vote" >Skip <span aria-hidden="true">&rarr;</span></a></li>
+	  </ul>
+	</nav>
+ 
+</div><!-- /container -->
+	
+<footer>
+    <div class="container">
+         <div class="row">
+            <div class="span12">
+                <div class="social-links">
+                    <a class="facebook" href="#"></a>
+                    <a class="twitter" href="#"></a>
+                    <a class="youtube" href="#"></a>
+                    <a class="email" href="#"></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12 copyright">
+                <p>Copyright &copy; 2016 - WTB</p>
+            </div>
+        </div>
+    </div> 
+</footer>
+	
+
+
