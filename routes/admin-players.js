@@ -173,14 +173,15 @@ router.post('/upload', isAuthenticated, function(req, res){
 function insertFromFile(){
 
 	var JugTest = mongoose.model('JugTest');
-	var jugCol = require('../adminApp/files/playersFile1.json');//[{"name":"j1"},{"name":"j2"},{"name":"j3"}];
+	var jugCol = require('../adminApp/files/playersFile.json');//[{"name":"j1"},{"name":"j2"},{"name":"j3"}];
 
+	//var jugCol = [{"position":"Arquero","club":"CERRO","name":"Sebastián","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=47612","lastname":"Britos"},{"position":"Arquero","club":"CERRO","name":"Sebastián","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=47611","lastname":"Fuentes"},{"position":"Arquero","club":"CERRO","name":"Sebastián","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=55844","lastname":"Medina"},{"position":"Defensa","club":"CERRO","name":"Agustín","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=50047","lastname":"Sant' Anna"},{"position":"Defensa","club":"CERRO","name":"Andrés","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=55321","lastname":"Ravecca"},{"position":"Defensa","club":"CERRO","name":"Angelo","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=50048","lastname":"Pizzorno"}];
 console.log("-------");
 //var colec = jugCol.jugador;
-//console.log(colec);
+console.log(jugCol);
 
-	//JugTest.collection.insert(jugCol, onInsert);
-	JugTest.create(jugCol, onInsert);
+	JugTest.collection.insert(jugCol, onInsert);
+	//JugTest.create(jugCol, onInsert);
 
 	function onInsert(err, docs) {
 	    if (err) {
