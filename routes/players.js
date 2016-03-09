@@ -25,19 +25,7 @@ router.get('/top', function(req, res){
 
 // GET getRandom : return 2 player select randomly
 router.get('/random', function(req, res){
-	//var collection = db.get('players');
 	Player = mongoose.model('Player');
-	/*Player.find({}, function(err, players){
-		if (err) throw err;
-
-		var num = Math.floor(Math.random() * players.length);
-		var num2 = num;
-		while (num === num2){
-			num2 = Math.floor(Math.random() * players.length);
-		};
-		var ranPlayer = [players[num], players[num2]];
-		res.json(ranPlayer);
-	});*/
 	Player.find({}).sort({points : -1}).exec(function(err, players){
 		if (err) throw err;
 
@@ -122,7 +110,8 @@ router.post('/vote', function(req, res){
 		_id: p1._id
 	},{
 		$set: { points : p1.points,
-				times : p1.times +1
+				times : p1.times +1,
+				updated_date : new Date()
 			 	}
 	},
 	function(err, player){
@@ -134,7 +123,8 @@ router.post('/vote', function(req, res){
 			_id: p2._id
 		},{
 			$set: { points : p2.points,
-					times : p2.times +1
+					times : p2.times +1,
+					updated_date : new Date()
 					}
 		},
 		function(err, player2){

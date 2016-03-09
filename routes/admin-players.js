@@ -2,6 +2,7 @@
 var Config = require('../config');
 var express = require('express');
 var router = express.Router();
+var multer = require('multer');
 
 var isAuthenticated = function (req, res, next) {
   if (req.isAuthenticated())
@@ -99,7 +100,8 @@ router.put('/:id', isAuthenticated, function(req, res){
 		if( req.body.url == null || req.body.url === ""){
 			var playerJson = {
 				name : name,
-				lastname : lastname/*,
+				lastname : lastname,
+				updated_date : Date.now/*,
 				points : points,
 				times : times*/
 			}
@@ -108,7 +110,8 @@ router.put('/:id', isAuthenticated, function(req, res){
 			var playerJson = {
 				name : name,
 				lastname : lastname,
-				url : url/*,
+				url : url,
+				updated_date : Date.now/*,
 				points : points,
 				times : times*/
 			}
@@ -133,7 +136,8 @@ router.post('/reset', isAuthenticated, function(req, res){
 	Player = mongoose.model('Player');
 	Player.update( { }, 
 		{ $set: { points : Config.default.points,
-		  times : Config.default.times 
+				  times : Config.default.times,
+				  updated_date : Date.now 
 		} },
 		{ multi : true },
 		function(err, players){
@@ -142,5 +146,52 @@ router.post('/reset', isAuthenticated, function(req, res){
 			res.json(players);
 		});
 });
+
+// Grabar archivo
+router.post('/upload', isAuthenticated, function(req, res){
+	// MULTER - SUBIR ARCHIVOS
+	var storage = multer.diskStorage({
+	  destination : function (req, file, cb){
+	    cb(null, './adminApp/files/')
+	  },
+	  filename : function (req, file, cb){
+	    cb(null, file.fieldname+".json")
+	  }
+	});
+	var upload = multer({ storage : storage}).single('playersFile');
+
+	upload(req, res, function(err){
+		if (err) 
+			return res.end("Error uploading file."+err);
+			//throw err;
+
+		insertFromFile();
+		//res.end("File is uploaded");
+	})
+});
+
+function insertFromFile(){
+
+	var JugTest = mongoose.model('JugTest');
+	var jugCol = require('../adminApp/files/playersFile1.json');//[{"name":"j1"},{"name":"j2"},{"name":"j3"}];
+
+console.log("-------");
+//var colec = jugCol.jugador;
+//console.log(colec);
+
+	//JugTest.collection.insert(jugCol, onInsert);
+	JugTest.create(jugCol, onInsert);
+
+	function onInsert(err, docs) {
+	    if (err) {
+	        // TODO: handle error
+	        console.info("ERROR: ");
+	        throw err;
+	    } else {
+	        console.info('%d jugadores were successfully stored.', docs.length);
+	        res.json(docs);
+	    }
+	}
+};
 
 module.exports = router;

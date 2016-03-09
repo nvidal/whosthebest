@@ -5,9 +5,13 @@ Schema = mongoose.Schema;
 var PlayerSchema = new Schema({
 	name : String,
 	lastname : String,
-	url : { type : String, default : Config.default.urlImg },
+	club : String,
+	position : String,
+	image : { type : String, default : Config.default.urlImg },
 	points : { type : Number, default : Config.default.points},
-	times : { type : Number, default : Config.default.times}
+	times : { type : Number, default : Config.default.times},
+	created_date: { type: Date, default: Date.now },
+	updated_date: { type: Date, default: Date.now }
 });
 
 mongoose.model('Player', PlayerSchema);

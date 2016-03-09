@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var multer = require('multer');
 
 var routes = require('./routes/index');
 //var users = require('./routes/users');
@@ -17,8 +18,8 @@ var app = express();
 mongoose = require('mongoose'),
 fs = require('fs');
 
-var mongoUri = 'mongodb://nacho:nacho@ds011258.mlab.com:11258/heroku_6g7p6vrk';
-//var mongoUri = 'mongodb://localhost:27017/WTB';
+//var mongoUri = 'mongodb://nacho:nacho@ds011258.mlab.com:11258/heroku_6g7p6vrk';
+var mongoUri = 'mongodb://localhost:27017/WTB';
 mongoose.connect(mongoUri);
 var db = mongoose.connection;
 db.on('error', function () {
@@ -43,6 +44,18 @@ app.use(flash());
 var initPassport = require('./passport/init');
 initPassport(passport);
 
+
+// MULTER - SUBIR ARCHIVOS
+/*var storage = multer.diskStorage({
+  destination : function (req, file, cb){
+    cb(null, '/adminApp/files')
+  },
+  filename : function (req, file, cb){
+    cb(null, file.fieldname + '-'+ Date.now())
+  }
+});
+var upload = multer({ storage : storage}).array();*/
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -63,6 +76,7 @@ app.use('/api/admin/players', admin_players);
 
 // MODELS
 require('./models/player');
+require('./models/jugTest');
 
 
 // catch 404 and forward to error handler

@@ -55,6 +55,8 @@ app.controller('PlayerCtrl', ['$scope', '$resource', '$location',
 			}
 		}
 
+		
+
 	}]);
 
 app.controller('PlayerEditCtrl', ['$scope', '$resource', '$location', '$routeParams',
