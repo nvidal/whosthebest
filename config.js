@@ -2,7 +2,12 @@ var config = {};
 
 config.select = {};
 config.vote = {};
+config.default = {};
 
+// Valores por defecto
+config.default.times = 0;
+config.default.points = 2000;
+config.default.urlImg = 'http://www.goear.com/static/bands/1/d/5/b/a/1d5ba8476509e7e68dea55d7dda9aa2e/oliver-atom_9652.jpg';
 
 // Seleccion random
 config.select.ventana = 10; // % del total para la ventana de seleccion

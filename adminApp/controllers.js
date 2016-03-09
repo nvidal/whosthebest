@@ -36,6 +36,25 @@ app.controller('PlayerCtrl', ['$scope', '$resource', '$location',
 			}
 		};
 
+		$scope.resetAll = function (){
+			var res1 = confirm("Reset all players to default values ?");
+
+			if (res1 == true) {
+				var Players = $resource('/api/admin/players/reset');
+				Players.save({}, function(players){
+					alert('Success!!');
+
+					var Player = $resource('/api/admin/players');
+					Player.query(function(players){
+						$scope.players = players;
+					});
+
+					$location.path('/');
+				});
+				
+			}
+		}
+
 	}]);
 
 app.controller('PlayerEditCtrl', ['$scope', '$resource', '$location', '$routeParams',

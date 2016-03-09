@@ -1,5 +1,5 @@
 //http://code.tutsplus.com/tutorials/authenticating-nodejs-applications-with-passport--cms-21619
-
+var Config = require('../config');
 var express = require('express');
 var router = express.Router();
 
@@ -126,5 +126,21 @@ router.put('/:id', isAuthenticated, function(req, res){
 	}
 });
 
+
+//POST restAllPlayer 
+router.post('/reset', isAuthenticated, function(req, res){
+
+	Player = mongoose.model('Player');
+	Player.update( { }, 
+		{ $set: { points : Config.default.points,
+		  times : Config.default.times 
+		} },
+		{ multi : true },
+		function(err, players){
+			if (err) throw err;
+
+			res.json(players);
+		});
+});
 
 module.exports = router;
