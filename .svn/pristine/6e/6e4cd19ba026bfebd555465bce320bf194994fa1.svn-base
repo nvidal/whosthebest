@@ -166,7 +166,7 @@ router.post('/upload', isAuthenticated, function(req, res){
 			//throw err;
 
 		insertFromFile();
-		res.end("File is uploaded");
+		//res.end("File is uploaded");
 	})
 });
 
@@ -178,18 +178,10 @@ function insertFromFile(){
 	//var jugCol = [{"position":"Arquero","club":"CERRO","name":"Sebastián","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=47612","lastname":"Britos"},{"position":"Arquero","club":"CERRO","name":"Sebastián","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=47611","lastname":"Fuentes"},{"position":"Arquero","club":"CERRO","name":"Sebastián","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=55844","lastname":"Medina"},{"position":"Defensa","club":"CERRO","name":"Agustín","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=50047","lastname":"Sant' Anna"},{"position":"Defensa","club":"CERRO","name":"Andrés","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=55321","lastname":"Ravecca"},{"position":"Defensa","club":"CERRO","name":"Angelo","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=50048","lastname":"Pizzorno"}];
 console.log("-------");
 //var colec = jugCol.jugador;
-//console.log(jugCol.jugador);
+console.log(jugCol);
 
-	//JugTest.collection.insert(jugCol.jugador, onInsert);
-	
-	for (var i = jugCol.jugador - 1; i >= 0; i--) {
-		try {
-			JugTest.create(jugCol.jugador[i], onInsert);
-		} catch(error){
-			console.error(error);
-		}
-		console.log("["+i+"]");
-	};
+	JugTest.collection.insert(jugCol, onInsert);
+	//JugTest.create(jugCol, onInsert);
 
 	function onInsert(err, docs) {
 	    if (err) {
@@ -198,10 +190,9 @@ console.log("-------");
 	        throw err;
 	    } else {
 	        console.info('%d jugadores were successfully stored.', docs.length);
-	        //res.json("OKEY");
+	        res.json(docs);
 	    }
 	}
 };
-
 
 module.exports = router;

@@ -3,7 +3,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">						
-				<h1>Ranking.UY</h1>   						
+				<h1><a class="navbar-brand" href="index.html" data-0="line-height:90px;" data-300="line-height:50px;">	Nombre APP
+				</a></h1>   						
 			</div>						
 			<div class="col-md-8">
 				<div class="dropdown">
@@ -24,13 +25,21 @@
 			<div class="col-lg-6">
 				<h4>{{player1.name}} {{player1.lastname}}</h4>						
 				<p class="thumbnail">
-					<img src="{{player1.url}}" alt="" class="player">
+					<img src="{{player1.url}}" alt="">
 				</p>
 				<p>
 					<table class="table table-user-information">
 						<tbody>
 						  <tr>
 							<td>Posición:</td>
+							<td>-</td>
+						  </tr>
+						  <tr>
+							<td>Nacimiento:</td>
+							<td>-</td>
+						  </tr>
+						  <tr>
+							<td>Nacionalidad:</td>
 							<td>-</td>
 						  </tr>
 						  <tr>
@@ -51,13 +60,21 @@
 			<div class="col-lg-6">
 				<h4>{{player2.name}} {{player2.lastname}}</h4>						
 				<p class="thumbnail">
-					<img src="{{player2.url}}" alt="" class="player">
+					<img src="{{player2.url}}" alt="">
 				</p>
 				<p>
 					<table class="table table-user-information">
 						<tbody>
 						  <tr>
 							<td>Posición:</td>
+							<td>-</td>
+						  </tr>
+						  <tr>
+							<td>Nacimiento:</td>
+							<td>-</td>
+						  </tr>
+						  <tr>
+							<td>Nacionalidad:</td>
 							<td>-</td>
 						  </tr>
 						  <tr>
@@ -76,13 +93,12 @@
 				</p>
 			</div>
 		</div>
-
-		<nav>
-		  <ul class="pager">
-			<li><a href="#/vote" >Saltear <span aria-hidden="true">&rarr;</span></a></li>
-		  </ul>
-		</nav>	
 	</div>
+	<nav>
+	  <ul class="pager">
+		<li><a href="#/vote" >Saltear <span aria-hidden="true">&rarr;</span></a></li>
+	  </ul>
+	</nav>	
 </div>
 
 <!-- fin jugadores -->	
@@ -97,7 +113,7 @@
 				</div>
 			</div>
 			<div class="row align-center copyright">
-				<div class="col-sm-12"><p>Copyright &copy; 2016 - Ranking.uy</p></div>
+				<div class="col-sm-12"><p>Copyright &copy; 2016 - Nombre APP</p></div>
 			</div>
 		</div>
 	</section>

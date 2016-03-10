@@ -18,8 +18,8 @@ var app = express();
 mongoose = require('mongoose'),
 fs = require('fs');
 
-//var mongoUri = 'mongodb://nacho:nacho@ds011258.mlab.com:11258/heroku_6g7p6vrk';
-var mongoUri = 'mongodb://localhost:27017/WTB';
+var mongoUri = 'mongodb://nacho:nacho@ds011258.mlab.com:11258/heroku_6g7p6vrk';
+//var mongoUri = 'mongodb://localhost:27017/WTB';
 mongoose.connect(mongoUri);
 var db = mongoose.connection;
 db.on('error', function () {
