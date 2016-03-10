@@ -22,9 +22,17 @@ var mongoUri = 'mongodb://nacho:nacho@ds011258.mlab.com:11258/heroku_6g7p6vrk';
 //var mongoUri = 'mongodb://localhost:27017/WTB';
 mongoose.connect(mongoUri);
 var db = mongoose.connection;
-db.on('error', function () {
-  throw new Error('unable to connect to database at ' + mongoUri);
+db.on('error', function (err) {
+  throw new Error(err+' unable to connect to database at ' + mongoUri);
 });
+
+db.on('disconnected', function(ref){
+  console.log("MONGO:disconnected");
+});
+db.on('close', function(ref){
+  console.log("MONGO:close");
+})
+
 //---
 
 //PASSPORT
