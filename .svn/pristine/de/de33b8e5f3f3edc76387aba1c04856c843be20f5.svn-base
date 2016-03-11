@@ -1,0 +1,108 @@
+
+<div class="main-menu">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">						
+				<h1>Ranking.UY</h1>   						
+			</div>						
+			<div class="col-md-8">
+				<div class="dropdown">
+					<ul class="nav nav-pills">
+					    <li class="active"><a href="/#/vote">Votar</a></li>							    
+					    <li><a href="/#/ranking">Ranking</a></li>
+					</ul>
+				</div>
+			</div>	
+		</div>				
+	</div>
+</div>
+</header>
+<!-- inicio jugadores -->
+<div id="main-content">
+	<div class="container">
+		<div class="row">			
+			<div class="col-lg-6">
+				<h4>{{player1.name}} {{player1.lastname}}</h4>						
+				<p class="thumbnail">
+					<img src="{{player1.image}}" alt="" class="player">
+				</p>
+				<p>
+					<table class="table table-user-information">
+						<tbody>
+						  <tr>
+							<td>Posición:</td>
+							<td>{{player1.position}}</td>
+						  </tr>
+						  <tr>
+							<td>Equipo:</td>
+							<td>{{player1.club}}</td>
+						  </tr>								  
+						</tbody>
+					  </table>
+					  <div class="text-center">
+						<button class="btn btn-default btn-lg"  role="button" ng-click="vot1()">
+			    				<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Votar
+						</button>
+					 </div>
+					<div class="spacer">
+					</div>
+				</p>
+			</div>
+			<div class="col-lg-6">
+				<h4>{{player2.name}} {{player2.lastname}}</h4>						
+				<p class="thumbnail">
+					<img src="{{player2.image}}" alt="" class="player">
+				</p>
+				<p>
+					<table class="table table-user-information">
+						<tbody>
+						  <tr>
+							<td>Posición:</td>
+							<td>{{player2.position}}</td>
+						  </tr>
+						  <tr>
+							<td>Equipo:</td>
+							<td>{{player2.club}}</td>
+						  </tr>								  
+						</tbody>
+					  </table>
+					  <div class="text-center">
+						<button class="btn btn-default btn-lg" role="button" ng-click="vot2()">
+			    				<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Votar
+						</button>
+					 </div>
+					<div class="spacer">
+					</div>
+				</p>
+			</div>
+		</div>
+
+		<nav>
+		  <ul class="pager">
+			<li><a href="#/vote" >Saltear <span aria-hidden="true">&rarr;</span></a></li>
+		  </ul>
+		</nav>	
+	</div>
+</div>
+
+<!-- fin jugadores -->	
+<footer>
+	<section id="footer" class="section footer">
+		<div class="container">
+			<div class="span12">
+				<div class="social-links">
+					<a class="facebook" href="#"></a>
+					<a class="twitter" href="#"></a>
+					<a class="googleplus" href="#"></a>
+				</div>
+			</div>
+			<div class="row align-center copyright">
+				<div class="col-sm-12"><p>Copyright &copy; 2016 - Ranking.uy</p></div>
+			</div>
+		</div>
+	</section>
+</footer>	
+
+	
+
+

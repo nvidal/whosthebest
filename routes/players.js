@@ -3,21 +3,58 @@ var router = express.Router();
 var config = require('../config');
 
 
+function findPlayerSorted(query, res){
+	Player = mongoose.model('Player');
+	Player.find(query).sort( {points : -1} ).exec(function(err, players){
+		if (err) throw err;
+
+		res.json(players);
+	});
+};
+
 // GET getAll
 router.get('/', function(req, res){
+	findPlayerSorted({}, res);
+	/*console.log("aca");
 	Player = mongoose.model('Player');
 	Player.find({}, function(err, players){
 		if (err) throw err;
 
 		res.json(players);
-	});
+	});*/
 
+});
+
+//GET byClub
+router.get('/club/:club', function(req, res){
+	findPlayerSorted({ club : req.params.club }, res);
+});
+//GET byPosition
+router.get('/position/:position', function(req, res){
+	findPlayerSorted({ position : req.params.position }, res);
+});
+//GET byClubAndPosition
+router.get('/club/:club/position/:position', function(req, res){
+	findPlayerSorted({ 
+		club : req.params.club,
+		position : req.params.position }, res);
 });
 
 // GET getTopTen
 router.get('/top', function(req, res){
 	Player = mongoose.model('Player');
 	Player.find({}).sort({points : -1}).limit(10).exec(function(err, players) {
+    	return res.json(players);
+  	});
+
+});
+
+// GET paginado
+router.get('/top/:pag', function(req, res){
+	Player = mongoose.model('Player');
+	Player.paginate( {}, 
+		{ sort: {points : -1}, limit: 10, page: req.params.pag },
+		function(err, players) {
     	return res.json(players);
   	});
 

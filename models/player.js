@@ -1,5 +1,7 @@
 var Config = require('../config');
 var mongoose = require('mongoose');
+var mongoosePaginate = require('mongoose-paginate');
+
 Schema = mongoose.Schema;
 
 var PlayerSchema = new Schema({
@@ -13,5 +15,6 @@ var PlayerSchema = new Schema({
 	created_date: { type: Date, default: Date.now },
 	updated_date: { type: Date, default: Date.now }
 });
+PlayerSchema.plugin(mongoosePaginate);
 
 mongoose.model('Player', PlayerSchema);
