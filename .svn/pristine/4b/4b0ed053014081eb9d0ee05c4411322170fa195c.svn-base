@@ -3,7 +3,7 @@ extends layoutAdm
 block content
 	div.container
 		div.row
-			div.col-sm-6.col-md-4.col-md-offset-4.col-sm-offset-3
+			div.col-sm-6.col-md-4.col-md-offset-4
 				h1.text-center.login-title Ranking.UY Administrador
 					div.account-wall
 						br

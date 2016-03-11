@@ -16,7 +16,7 @@
 		</div>				
 	</div>
 </div>
-
+</header>
 <!-- inicio jugadores -->
 <div id="main-content">
 	<div class="container">
@@ -24,14 +24,12 @@
 			<!--div class="col-md-3 col-sm-1">
 			</div-->		
 			<div class="col-md-3 col-md-offset-3 col-sm-5 col-sm-offset-1 col-xs-6">
-				<p>
-					<h4>{{player1.name}} {{player1.lastname}}</h4>
-				</p>						
+				<h4>{{player1.name}} {{player1.lastname}}</h4>						
 				<p class="thumbnail">
 					<img src="{{player1.image}}" alt="" class="player" ng-click="vot1()">
 				</p>
 				<p>
-					<table class="table table-user-information hidden-xs">
+					<table class="table table-user-information">
 						<tbody>
 						  <tr>
 							<td>Posición:</td>
@@ -53,14 +51,12 @@
 				</p>
 			</div>
 			<div class="col-md-3 col-sm-5 col-xs-6">
-				<p>
-					<h4>{{player2.name}} {{player2.lastname}}</h4>						
-				</p>
+				<h4>{{player2.name}} {{player2.lastname}}</h4>						
 				<p class="thumbnail">
 					<img src="{{player2.image}}" alt="" class="player" ng-click="vot2()">
 				</p>
 				<p>
-					<table class="table table-user-information hidden-xs">
+					<table class="table table-user-information">
 						<tbody>
 						  <tr>
 							<td>Posición:</td>
