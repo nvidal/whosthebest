@@ -1,0 +1,91 @@
+<div class="page-header text-center" >
+	<h1>
+    Inicio
+  </h1>
+</div>
+
+<!--div class="btn-group btn-group-justified" role="group"-->
+<div class="text-center">
+		<a href='/adm#/list' class="btn btn-primary btn-lg"> Administrar jugadores </a>
+</div>
+<!--/div-->
+<br>
+
+<div class="col-md-8 col-md-offset-2">
+	<ul class="list-group">
+	  <li class="list-group-item">
+	    <span class="badge">{{stats.totalTimes/2}}</span>
+	    Votos totales
+	  </li>
+	  <li class="list-group-item">
+	    <span class="badge">{{stats.avgTimes | number:2}}</span>
+	    Votos promedio
+	  </li>
+	  <li class="list-group-item">
+	    <span class="badge">{{stats.totalPlayers}}</span>
+	    Total jugadores
+	  </li>
+	</ul>
+</div>
+
+<div class="panel panel-default col-md-10 col-md-offset-1" style="padding:0px; ">
+  <!-- Default panel contents -->
+  	<div class="panel-heading text-center">
+  		<h2>Estadisticas </h2>
+	</div>
+
+	<table class="table table-bordered">
+  	<th>
+  		<a href="" ng-click="orderByField='_id'; reverseSort = !reverseSort">
+  			Club
+		</a>
+  	</th>
+  	<th>
+  		<a href="" ng-click="orderByField='totalPoints'; reverseSort = !reverseSort">
+  			Puntos
+		</a>
+  	</th>
+  	<th>
+  		<a href="" ng-click="orderByField='avgPoints'; reverseSort = !reverseSort">
+  			Promedio avg
+		</a>
+  	</th>
+  	<th>
+  		<a href="" ng-click="orderByField='totalTimes'; reverseSort = !reverseSort">
+  			Votos
+		</a>
+  	</th>
+  	<th>
+  		<a href="" ng-click="orderByField='avgTimes'; reverseSort = !reverseSort">
+  			Votos avg
+		</a>
+  	</th>
+  	<th>
+  		<a href="" ng-click="orderByField='totalPlayers'; reverseSort = !reverseSort">
+  			Jugadores
+		</a>
+  	</th>
+  	<th>
+  		<a href="" ng-click="orderByField='maxTimes'; reverseSort = !reverseSort">
+  			Votos max
+		</a>
+  	</th>
+  	<th>
+  		<a href="" ng-click="orderByField='minTimes'; reverseSort = !reverseSort">
+  			Votos min
+		</a>
+  	</th>
+
+    <tr ng-repeat="club in clubStats |orderBy:orderByField:reverseSort">
+		<td>{{club._id}}</td>
+		<td>{{club.totalPoints | number:2}}</td>
+		<td>{{club.avgPoints | number:2}}</td>
+		<td>{{club.totalTimes }}</td>
+		<td>{{club.avgTimes | number:2}}</td>
+		<td>{{club.totalPlayers }}</td>
+		<td>{{club.maxTimes}}</td>
+		<td>{{club.minTimes}}</td>
+    </tr>
+  </table>
+</div>
+
