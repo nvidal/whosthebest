@@ -91,7 +91,22 @@ router.get('/random', function(req, res){
 		while (j1 === j2){
 			j2 = Math.floor(Math.random() * (b-a)) + a;
 		};
+
 		var ranPlayer = [players[j1], players[j2]];
+		Player.update(
+		{	_id: ranPlayer[0]._id },
+		{ 	$set: { draw : ranPlayer[0].draw +1 }
+		}, function(err, player){
+			if (err) 
+				console.log("error al sumar draw");
+		});
+		Player.update(
+		{	_id: ranPlayer[1]._id },
+		{ 	$set: { draw : ranPlayer[1].draw +1 }
+		}, function(err, player){
+			if (err) 
+				console.log("error al sumar draw");
+		});
 		res.json(ranPlayer);
 	});
 
