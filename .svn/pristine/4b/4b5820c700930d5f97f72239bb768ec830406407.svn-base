@@ -1,0 +1,15 @@
+doctype html
+html(ng-app='admWTPApp')
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/angular/angular.js')
+    script(src='/javascripts/angular/angular-resource.js')
+    script(src='/javascripts/angular/angular-route.js')
+    link(rel='stylesheet', href='/javascripts/bootstrap/css/bootstrap.min.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+    script(src='/admWTBApp.js')
+    script(src='/controllers.js')
+  body
+    block content

@@ -49,13 +49,23 @@
 		</a>
   	</th>
   	<th>
+  		<a href="" ng-click="orderByField='totalPoints'; reverseSort = !reverseSort">
+  			Puntos
+		</a>
+  	</th>
+  	<th>
   		<a href="" ng-click="orderByField='avgPoints'; reverseSort = !reverseSort">
-  			Pts
+  			Promedio avg
+		</a>
+  	</th>
+  	<th>
+  		<a href="" ng-click="orderByField='totalTimes'; reverseSort = !reverseSort">
+  			Votos
 		</a>
   	</th>
   	<th>
   		<a href="" ng-click="orderByField='avgTimes'; reverseSort = !reverseSort">
-  			Votos (draws)
+  			Votos avg
 		</a>
   	</th>
   	<th>
@@ -76,11 +86,13 @@
 
     <tr ng-repeat="club in clubStats |orderBy:orderByField:reverseSort">
 		<td>{{club._id}}</td>
+		<td>{{club.totalPoints | number:2}}</td>
 		<td>{{club.avgPoints | number:2}}</td>
-		<td>{{club.avgTimes | number:2}} ({{club.avgDraws | number:2}})</td>
+		<td>{{club.totalTimes }}</td>
+		<td>{{club.avgTimes | number:2}}</td>
 		<td>{{club.totalPlayers }}</td>
-		<td>{{club.maxTimes}} ({{club.maxDraws | number:2}})</td>
-		<td>{{club.minTimes}} ({{club.minDraws | number:2}})</td>
+		<td>{{club.maxTimes}}</td>
+		<td>{{club.minTimes}}</td>
     </tr>
   </table>
 </div>

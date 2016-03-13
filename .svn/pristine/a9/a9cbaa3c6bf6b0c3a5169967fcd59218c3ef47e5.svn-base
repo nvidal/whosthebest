@@ -44,9 +44,7 @@ router.get("/clubs", isAuthenticated, function(req, res){
                 avgDraws : { $avg : "$draw" },
                 totalPlayers : {$sum : 1 },
                 maxTimes : {$max : "$times"}, 
-                minTimes : {$min : "$times"},
-                maxDraws : {$max : "$draw"}, 
-                minDraws : {$min : "$draw"}
+                minTimes : {$min : "$times"}
             }
      	},
 	    { 
