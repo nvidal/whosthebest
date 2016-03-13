@@ -19,6 +19,8 @@ router.get("/", isAuthenticated, function(req, res){
 				totalPoints : { $sum : "$points" },
                 avgPoints : { $avg : "$points" }, 
                 avgTimes : { $avg : "$times" },
+                totalDraws : { $sum : "$draw" },
+                avgDraws : { $avg : "$draw" },
                 totalPlayers : {$sum : 1 },
                 maxTimes : {$max : "$times"}, 
                 minTimes : {$min : "$times"}
@@ -38,6 +40,8 @@ router.get("/clubs", isAuthenticated, function(req, res){
 				totalPoints : { $sum : "$points" },
                 avgPoints : { $avg : "$points" }, 
                 avgTimes : { $avg : "$times" },
+                totalDraws : { $sum : "$draw" },
+                avgDraws : { $avg : "$draw" },
                 totalPlayers : {$sum : 1 },
                 maxTimes : {$max : "$times"}, 
                 minTimes : {$min : "$times"}
