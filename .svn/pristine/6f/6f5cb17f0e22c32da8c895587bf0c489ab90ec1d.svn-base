@@ -2,12 +2,6 @@ app.controller('RankCtrl', ['$scope', '$resource',
 	function($scope, $resource){
 		var Players = $resource('/api/players');
 		Players.query(function(players){
-			
-			$scope.players = [];
-			//Agrego rank a cada jugador
-			for(i = 0; i< players.length; i++){
-				players[i].rank = i+1;
-			}
 			$scope.players = players;
 		});
 }]);

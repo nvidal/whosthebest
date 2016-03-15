@@ -2,10 +2,10 @@
 <div id="main-content">
 	<div class="container">
 		<div class="row">
- 			<div class="col-lg-10 col-lg-offset-1 ">
-				<h4>Ranking del Futbol Uruguayo</h4>						
-				<form class="form-inline text-center col-lg-6 col-lg-offset-3 col-sm-6 col-sm-offset-3">
-					<input type="text" ng-model="search" class="form-control" placeholder="Buscar jugador o equipo..." style="width:100%">
+ 			<div class="col-lg-12">
+				<h4>Ranking</h4>						
+				<form class="form-inline">
+					<input type="text" ng-model="search" class="form-control" placeholder="buscar jugador o equipo...">
 				</form>
 			
 				<p>
@@ -17,7 +17,7 @@
 					    </thead>
 					    <tbody>
 						    <tr dir-paginate="player in players | orderBy : '-points' | filter:search | itemsPerPage:10">
-						    	<td>{{player.rank}}</td>
+						    	<td>{{$index +1}}</td>
 						    	<td>{{player.name}} {{player.lastname}}</td>
 						    	<td>{{player.points | number:2}}</td>
 						    </tr>
@@ -38,7 +38,6 @@
 		</div>
 	</div>
 </div>
-
 
 <!-- fin jugadores -->	
 

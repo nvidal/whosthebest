@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+span.cerro { width:30px; height:40px ; float:left; background: url(/images/clubsplantel.png) no-repeat; cursor:pointer; margin-right: 5px;} 
+span.danubio { width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -80px -86px ; cursor:pointer; margin-right: -4px; margin-left:0px!important;} 
+span.defensor{ width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -110px -86px ; margin-left:1px!important; cursor:pointer} 
+span.tanque{ width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -150px -86px ; cursor:pointer} 
+span.fenix{ width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -188px -86px ; margin-left: 2px!important; cursor:pointer} 
+span.juventud{ width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -225px -86px ; cursor:pointer; margin-right:-1px;} 
+span.nacional{ width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -337px -86px; margin-left: 3px!important; cursor:pointer} 
+span.pemarol{ width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -370px -86px ; margin-left: -3px!important; cursor:pointer} 
+span.sudamerica{ width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -405px -86px ; margin-left:-3px!important; cursor:pointer} 
+span.racing{ width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -440px -86px; cursor:pointer; margin-left:-8px;} 
+
+span.rentistas{ width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -476px -86px ; margin-left:-3px!important; cursor:pointer} 
+span.river{ width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -512px -86px ; margin-left: -1px!important; cursor:pointer} 
+
+span.wanderers{ width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -550px -86px ; margin-left: -3px!important; cursor:pointer} 
+span.liverpool{ width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -259px -86px ; cursor:pointer; margin-left: -1px;
+margin-top: 3px;} 
+span.plaza{  width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -294px -130px ; margin-left:-1px ; cursor:pointer} 
+span.villateresa{  width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -549px -130px ; margin-left:2px ; cursor:pointer; margin-top:-2px;} 
+
+span.tacuarembo{  width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -463px -130px ; margin-left:4px; margin-top: -2px; cursor:pointer} 
+span.rampla{  width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -338px -130px ; margin-left:4px; margin-top: -2px; cursor:pointer} 
+span.atenas {  width:30px; height:40px; float:left; background:url(/images/clubsplantel.png) no-repeat 0px -130px; cursor:pointer; margin-top: 0px; margin-right: 1px;} 
+span.canadian {  width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -43px -130px ;margin-right:17px ; cursor:pointer} 
+span.bostonriver { width:30px; height:40px; float:left; background:url(/images/clubsplantel.png) no-repeat -88px -130px ; margin-left:5px!important; cursor:pointer} 
+span.centralespanol{  width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -132px -130px; margin-left:-6px ; cursor:pointer} 
+span.cerrito{  width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -175px -130px; cursor:pointer} 
+span.cerrolargo { width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -36px -86px ; cursor:pointer; margin-left: -1px;
+margin-top: 5px;} 
+span.maldonado{  width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -217px -130px; margin-left:8px ; cursor:pointer} 
+span.miramar{ width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -300px -86px ; cursor:pointer; margin-left: 2px;
+margin-top: 2px;} 
+span.huracan{  width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -256px -130px ; margin-left:-2px ; cursor:pointer} 
+span.oriental{  width:30px; height:40px ; float:left; margin-left:2px ; background:none; cursor:pointer; margin-top:2px;} 
+
+span.rocha{  width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -372px -130px; margin-left:-1px ; cursor:pointer} 
+span.progreso{  width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -418px -130px ; margin-left:1px ; cursor:pointer; margin-top:-2px;} 
+span.torque{  width:30px; height:40px ; float:left; background:url(/images/clubsplantel.png) no-repeat -506px -130px ; margin-left:0px; cursor:pointer} 
+
+span.villespanola{  width:30px; height:40px ; float:left; background:none; margin-left:2px ; cursor:pointer; margin-top:-4px;} 
+
