@@ -35,6 +35,9 @@
   	<th ng-click="sort('lastname')">Jugador
       <span class="glyphicon sort-icon" ng-show="sortKey=='lastname'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
     </th>
+    <th ng-click="sort('club')">Club
+      <span class="glyphicon sort-icon" ng-show="sortKey=='club'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+    </th>
   	<th ng-click="sort('points')">Pts
         <span class="glyphicon sort-icon" ng-show="sortKey=='points'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
     </th>
@@ -50,6 +53,7 @@
     <tr dir-paginate="player in players|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
     	<!--td>{{$index + currentPage*itemsPerPage +1}}</td-->
     	<td>{{player.name}} {{player.lastname}}</td>
+      <td>{{player.club}}</td>
     	<td>{{player.points | number:2}}</td>
       <td>{{player.times}}</td>
       <td>{{player.draw}}</td>
