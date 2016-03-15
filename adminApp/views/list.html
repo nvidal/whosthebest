@@ -3,33 +3,51 @@
     <a class="btn btn-md btn-success" href="/adm#/">
       <span class="glyphicon glyphicon-arrow-left" style="color:white" aria-hidden="true"></span>
     </a>
-    Player's list
+    Lista de jugadores
   </h1>
 </div>
 
-<div class="panel panel-default col-md-10 col-md-offset-1" style="padding:0px; " ng-init="init()">
+<div class="panel panel-default col-md-10 col-md-offset-1" style="padding:0px; ">
   <!-- Default panel contents -->
   <div class="panel-heading text-center" >
-    <h5>Players</h5>
-    <div class="input-group">
+    
+    <h3>Jugadores</h3>
+    <!--div class="input-group">
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-search"></span>
       </span>
       <input type="text" class="form-control" placeholder="Search by name" ng-model="searchPlayer.lastname">
-    </div>
+    </div-->
+
+    <form class="form-inline">
+        <div class="form-group">
+            <label >Buscar</label>
+            <input type="text" ng-model="search" class="form-control" placeholder="Buscar">
+        </div>
+    </form>
+
   </div>
 
   <div>
   <!-- Table -->
   <table class="table">
   	<!--th>#</th-->
-  	<th>Player</th>
-  	<th>Points</th>
-    <th>Times</th>
-    <th>Draws</th>
+  	<th ng-click="sort('lastname')">Jugador
+      <span class="glyphicon sort-icon" ng-show="sortKey=='lastname'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+    </th>
+  	<th ng-click="sort('points')">Pts
+        <span class="glyphicon sort-icon" ng-show="sortKey=='points'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+    </th>
+    <th ng-click="sort('times')">Votos
+      <span class="glyphicon sort-icon" ng-show="sortKey=='times'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+    </th>
+    <th ng-click="sort('draw')">Draws
+      <span class="glyphicon sort-icon" ng-show="sortKey=='draw'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+    </th>
 
     <!--tr ng-repeat="player in pagedItems[currentPage] | orderBy : '-points' | filter: { lastname : searchPlayer }"-->
-    <tr ng-repeat="player in filterList | start: (currentPage -1) * pageSize | limitTo: pageSize">
+    <!--tr ng-repeat="player in filterList | start: (currentPage -1) * pageSize | limitTo: pageSize"-->
+    <tr dir-paginate="player in players|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
     	<!--td>{{$index + currentPage*itemsPerPage +1}}</td-->
     	<td>{{player.name}} {{player.lastname}}</td>
     	<td>{{player.points | number:2}}</td>
@@ -46,6 +64,16 @@
     </tr>
   </table>
 
+</div>
+</div>
+
+  <div class="text-center">
+  <dir-pagination-controls
+       max-size="7"
+       direction-links="true"
+       boundary-links="true" >
+    </dir-pagination-controls>
+    </div>
   <!--nav>
     <ul class="pager">
       <li ng-class="{disabled: currentPage == 0}">
@@ -55,11 +83,10 @@
         <a href="/adm#/list" ng-click="nextPage()">Next</a>
       </li>
     </ul>
-  </nav-->
-  <pagination total-times="filterList.length" items-per-page="pageSize" ng-model="currentPage" max-size="5" class="pagination-sm"></pagination>
+  </nav>
+  <pagination total-times="filterList.length" items-per-page="pageSize" ng-model="currentPage" max-size="5" class="pagination-sm"></pagination-->
 
-  </div>
-</div>
+  
 
 
 <!--input type="text" ng-model="currentPage"-->

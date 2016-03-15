@@ -1,4 +1,5 @@
-app = angular.module('admWTPApp', ['ngRoute', 'ngResource', 'ui.bootstrap']);
+app = angular.module('admWTPApp', ['ngRoute', 'ngResource', 'ui.bootstrap',
+	'angularUtils.directives.dirPagination']);
 
 app.config(['$routeProvider', function($routeProvider){
 	$routeProvider

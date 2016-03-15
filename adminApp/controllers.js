@@ -5,22 +5,27 @@ app.controller('PlayerCtrl', ['$scope', '$resource', '$location', 'filterFilter'
 		//INIT
 		//$scope.currentPage = 0;
 		//$scope.itemsPerPage = 10;
-		$scope.pageSize = 10;
+		//$scope.pageSize = 10;
 		$scope.players = [];
 		var Player = $resource('/api/admin/players');
 		Player.query(function(players){
 			$scope.players = players;
 			//$scope.groupToPages();
-			$scope.filterList = players;//filterFilter($scope.players, { lastname : "" });
-			$scope.currentPage = 1;
+			//$scope.filterList = players;//filterFilter($scope.players, { lastname : "" });
+			//$scope.currentPage = 1;
 		});
 
+		$scope.sort = function(keyname){
+        	$scope.sortKey = keyname;   //set the sortKey to the param passed
+        	$scope.reverse = !$scope.reverse; //if true make it false and vice versa
+    	}	
+
 		
-		$scope.$watch('searchPlayer.lastname', function(term){
+		/*$scope.$watch('searchPlayer.lastname', function(term){
 			var obj = { lastname : term }
 			$scope.filterList = filterFilter($scope.players, obj);
 			$scope.currentPage = 1;
-		});
+		});*/
 
 
 		$scope.createPlayer = function(isValid){
@@ -74,7 +79,7 @@ app.controller('PlayerCtrl', ['$scope', '$resource', '$location', 'filterFilter'
 			}
 		};
 
-		$scope.groupToPages = function () {
+		/*$scope.groupToPages = function () {
         	$scope.pagedItems = [];
 	        for (var i = 0; i < $scope.players.length; i++) {
 	            if (i % $scope.itemsPerPage === 0) {
@@ -95,10 +100,10 @@ app.controller('PlayerCtrl', ['$scope', '$resource', '$location', 'filterFilter'
 			if ($scope.currentPage > 0 ){
 				$scope.currentPage --;
 			};
-		}
+		}*/
 
-	}])
-	.filter('start', function(){
+	}]);
+	/*.filter('start', function(){
 		return function (input, start){
 			if (!input || !input.length)
 				return;
@@ -106,7 +111,7 @@ app.controller('PlayerCtrl', ['$scope', '$resource', '$location', 'filterFilter'
 			start = +start;
 			return input.slice(start);
 		};
-	});
+	});*/
 
 
 // CONTROLLER DE EDITAR JUGADOR
