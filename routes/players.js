@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var config = require('../config');
+var mongoosePaginate = require('mongoose-paginate');
 
 
 function findPlayerSorted(query, res){
