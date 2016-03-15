@@ -1,6 +1,6 @@
 app.controller('RankCtrl', ['$scope', '$resource', 
 	function($scope, $resource){
-		var Players = $resource('/api/players/top');
+		var Players = $resource('/api/players');
 		Players.query(function(players){
 			$scope.players = players;
 		});

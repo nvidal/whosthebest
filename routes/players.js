@@ -8,6 +8,13 @@ function findPlayerSorted(query, res){
 	Player.find(query).sort( {points : -1} ).exec(function(err, players){
 		if (err) throw err;
 
+		//result = [];
+		for(i = 0; i < players.length; i++){
+			//players[i].rank = i+1;
+			ob = players[i]
+			ob.set('rank', i+1);
+			console.log(ob);
+		}
 		res.json(players);
 	});
 };
