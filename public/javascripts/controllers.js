@@ -7,6 +7,7 @@ app.controller('RankCtrl', ['$scope', '$resource',
 			//Agrego rank a cada jugador
 			for(i = 0; i< players.length; i++){
 				players[i].rank = i+1;
+				players[i].nombreCompleto = players[i].name+" "+players[i].lastname;
 			}
 			$scope.players = players;
 		});

@@ -13,12 +13,14 @@
 					    <thead>
 					  	<th>#</th>
 					  	<th>Jugador</th>
+					  	<th class="hidden-xs">Club</th>
 					  	<th>Puntaje</th>
 					    </thead>
 					    <tbody>
 						    <tr dir-paginate="player in players | orderBy : '-points' | filter:search | itemsPerPage:10">
 						    	<td>{{player.rank}}</td>
 						    	<td>{{player.name}} {{player.lastname}}</td>
+						    	<td class="hidden-xs">{{player.club}}</td>
 						    	<td>{{player.points | number:2}}</td>
 						    </tr>
 					    </tbody>
