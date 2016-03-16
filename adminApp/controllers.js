@@ -107,4 +107,40 @@ app.controller('StatsAdminCtrl', ['$scope', '$resource', '$location', '$routePar
 		});
 	}]);
 
+// CONTROLLER DE USUARIO ADM
+/*app.controller('PasswordCtrl', ['$scope', '$resource', '$location', '$routeParams',
+	function($scope, $resource, $location, $routeParams){
+
+		var User = $resource('/api/admin/players/user');
+		User.get(function(user){
+			$scope.user = user;
+		});
+
+		$scope.pass = {};
+  		$scope.pass.nueva = "";
+  		$scope.pass.actual = "";
+
+  		$scope.cambiarPass = function(isValid){
+
+			if (isValid){
+				if ($scope.pass.actual)
+				
+				var Players = $resource('/api/admin/players/:id', { id : '@_id' }, 
+				{ update : {method : 'PUT'} });
+				Players.update( $scope.playerEdition, function(){
+				alert('Jugador editado');
+				$location.path('/');
+			});
+			}
+			else{
+				$scope.showErrors = true;
+			}
+		};
+
+		var isValidPassword = function(user, password){
+        return bCrypt.compareSync(password, user.password);
+    }
+
+	}]);*/
+
 

@@ -20,6 +20,25 @@ function findPlayerSorted(query, res){
 	});
 };
 
+/* ADMIN-USER
+var bCrypt = require('bcrypt-nodejs');
+var User = require('../models/adminUser');
+// Generates hash using bCrypt
+    var createHash = function(password){
+        return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
+    }
+// GET user
+router.get('/user', isAuthenticated, function(req, res){
+	res.json(req.user);
+});
+router.put('/user/:pass', isAuthenticated, function(req, res){
+	var User = new User();
+	User.update();
+});
+*/
+
+
+
 // GET getAll
 router.get('/', isAuthenticated, function(req, res){
 	//console.log(req);
