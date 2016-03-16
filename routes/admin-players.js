@@ -22,6 +22,7 @@ function findPlayerSorted(query, res){
 
 // GET getAll
 router.get('/', isAuthenticated, function(req, res){
+	//console.log(req);
 	findPlayerSorted({}, res);
 });
 
