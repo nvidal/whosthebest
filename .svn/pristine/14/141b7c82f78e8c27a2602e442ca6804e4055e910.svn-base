@@ -1,0 +1,49 @@
+<!-- inicio jugadores -->
+<div id="main-content">
+	<div class="container">
+		<div class="row">
+ 			<div class="col-lg-10 col-lg-offset-1 ">
+				<h4>Ranking del Futbol Uruguayo</h4>						
+				<form class="form-inline text-center col-lg-6 col-lg-offset-3 col-sm-6 col-sm-offset-3">
+					<input type="text" ng-model="search" class="form-control" placeholder="Buscar jugador o equipo..." style="width:100%">
+				</form>
+			
+				<p>
+					<table class="table">
+					    <thead>
+					  	<th>#</th>
+					  	<th>Jugador</th>
+					  	<th class="hidden-xs">Club</th>
+					  	<th>Puntaje</th>
+					    </thead>
+					    <tbody>
+						    <tr dir-paginate="player in players | orderBy : '-points' | filter:search | itemsPerPage:10">
+						    	<td>{{player.rank}}</td>
+						    	<td>{{player.name}} {{player.lastname}}</td>
+						    	<td class="hidden-xs">{{player.club}}</td>
+						    	<td>{{player.points | number:2}}</td>
+						    </tr>
+					    </tbody>
+					 </table>
+				</p>
+				<div class="text-center">
+					 <dir-pagination-controls
+					       max-size="5"
+					       direction-links="true"
+					       boundary-links="true" >
+					 </dir-pagination-controls>
+				</div>
+				<div class="text-center">
+					<a href="/#/vote"  class="btn btn-default btn-lg"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Votar! </a>
+				</div>				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- fin jugadores -->	
+
+	
+
+
