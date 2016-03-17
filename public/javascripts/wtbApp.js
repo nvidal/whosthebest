@@ -19,6 +19,6 @@ app.config(['$routeProvider', function($routeProvider){
 			templateUrl : 'partials/nosotros.html'
 		})
 		.otherwise({
-			redirectTo : '/ranking'
+			redirectTo : '/vote'
 		});
 }]);
