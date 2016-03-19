@@ -18,6 +18,10 @@ app.config(['$routeProvider', function($routeProvider){
 		.when('/nosotros/', {
 			templateUrl : 'partials/nosotros.html'
 		})
+		.when('/rankClubs/', {
+			templateUrl : 'partials/rank-clubs.html',
+			controller : 'RankClubsCtrl'
+		})
 		.otherwise({
 			redirectTo : '/vote'
 		});

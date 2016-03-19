@@ -1,0 +1,35 @@
+<div class="page-header text-center" >
+	<h1>
+    <a class="btn btn-md btn-success" href="/adm#/">
+      <span class="glyphicon glyphicon-arrow-left" style="color:white" aria-hidden="true"></span>
+    </a>
+    Cambio de contraseña {{user.username}}
+  </h1>
+</div>
+
+<form name="userForm" ng-submit="cambiarPass(userForm.$valid)" novalidate> 
+	<div class="input-group input-group-md">
+	  	<span class="input-group-addon" id="sizing-addon1" >Actual</span>
+	  	<input name="actualIn" type="text" class="form-control" ng-model="pass.actualIn" required>
+    </div>
+    <div ng-messages="userForm.actualIn.$error" ng-show="showErrors" style="color:red" role="alert">
+			<p ng-message="required">Ingrese la contraseña actual.</p>
+	</div>
+	<br>
+	<div class="input-group input-group-md">
+	  	<span class="input-group-addon" id="sizing-addon1" >Nueva</span>
+	  	<input name="nueva" type="text" class="form-control" ng-model="pass.nueva" required>
+    </div>
+    <div ng-messages="userForm.nueva.$error" ng-show="showErrors" style="color:red" role="alert">
+			<p ng-message="required">Ingrese la nueva contraseña.</p>
+	</div>
+
+	<br>
+	<div class="btn-group btn-group-justified" role="group">
+		<div class="btn-group" role="group">
+			<!--<input type="button" class="btn btn-lg btn-success" ng-disabled="myForm.name.$invalid" value="Create" ng-click="newPlayer()"></input>-->
+			<input type="submit" class="btn btn-lg btn-success" value="Cambiar"></input>
+		</div>
+	</div>
+</form>
+

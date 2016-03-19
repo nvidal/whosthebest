@@ -16,14 +16,6 @@ function findPlayerSorted(query, res){
 // GET getAll
 router.get('/', function(req, res){
 	findPlayerSorted({}, res);
-	/*console.log("aca");
-	Player = mongoose.model('Player');
-	Player.find({}, function(err, players){
-		if (err) throw err;
-
-		res.json(players);
-	});*/
-
 });
 
 //GET byClub
@@ -61,8 +53,35 @@ router.get('/top/:pag', function(req, res){
 
 });
 
+//GET RankingPorClub
+router.get('/clubs', function(req, res){
+	Player = mongoose.model('Player');
+	Player.aggregate(
+		{ 
+		$group : {_id : "$club", 
+                avgPoints : { $avg : "$points" }, 
+                avgTimes : { $avg : "$times" },
+                avgDraws : { $avg : "$draw" },
+                totalPlayers : {$sum : 1 }
+            }
+     	},
+	    { 
+	    	$sort : { avgPoints : -1}
+	    },
+     	function(err, results){
+			return res.json(results);
+	});
+});
+
+
+
+//************************//
+
 // GET getRandom : return 2 player select randomly
 router.get('/random', function(req, res){
+	console.time("timer-random");
+	console.time("timer-random1");
+
 	Player = mongoose.model('Player');
 	Player.find({}).sort({points : -1}).exec(function(err, players){
 		if (err) throw err;
@@ -110,8 +129,9 @@ router.get('/random', function(req, res){
 		});
 		console.log("["+j1+"-"+j2+"]");
 		res.json(ranPlayer);
+		console.timeEnd("timer-random1");
 	});
-
+	console.timeEnd("timer-random");
 });
 
 
@@ -150,6 +170,7 @@ function getPlayer(id, res){
 };
 
 router.post('/vote', function(req, res){
+	console.time("timer-vote");
 //	getPlayer(req.body.id1, res);
 //	getPlayer(req.body.id2, res);
 
@@ -191,6 +212,7 @@ router.post('/vote', function(req, res){
 			res.json(result);
 		});
 	});
+	console.timeEnd("timer-vote");
 });
 
 
