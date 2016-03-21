@@ -84,8 +84,6 @@ function lengthRandom(length){
 
 	var res = Math.floor(Math.random() * 5);
 	if (res === 1)
-		return 20;
-	else if (res === 2)
 		return 50;
 	else
 		return length;
