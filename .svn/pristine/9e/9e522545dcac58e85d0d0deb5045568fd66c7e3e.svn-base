@@ -1,0 +1,23 @@
+doctype html
+html(ng-app='WTBApp', lang="es")
+  head
+    title= title
+    script(src='/javascripts/angular/angular.js')
+    script(src='/javascripts/angular/angular-resource.js')
+    script(src='/javascripts/angular/angular-route.js')
+    script(src='/javascripts/angularUI/dirPagination.js')
+    script(src='/javascripts/bootstrap/js/jquery-1.12.1.min.js')
+    script(src='/javascripts/bootstrap/js/bootstrap.min.js')
+    link(rel='stylesheet', href='/javascripts/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/social-icons.css')
+    link(rel='stylesheet', href='/stylesheets/clubes.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='google-site-verification' content='IDT7KYgKCd5MdYHrGj8FHxYaegJ_a5l9OppcHLWkgSc')
+
+    script(src='/javascripts/wtbApp.js')
+    script(src='/javascripts/controllers.js')
+  body
+    include ../public/partials/header.html
+    block content
+    include ../public/partials/footer.html

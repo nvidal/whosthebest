@@ -1,0 +1,42 @@
+<!-- inicio ranking clubs -->
+<div id="main-content">
+	<div class="container">
+		<div class="row">
+ 			<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+				<h4>Ranking por Equipos</h4>						
+				<!--form class="form-inline text-center col-lg-6 col-lg-offset-3 col-sm-6 col-sm-offset-3">
+					<input type="text" ng-model="search" class="form-control" placeholder="Buscar jugador, equipo o posicion..." style="width:100%">
+				</form-->
+			
+				<p>
+					<table class="table">
+					  	<th>#</th>
+					  	<th>Equipo</th>
+					  	<th>Pts promedio</th>
+					  	<!--th class="hidden-xs hidden-sm">Jugadores</th-->
+					   
+					    <tr ng-repeat="club in clubs |orderBy:orderByField:reverseSort">
+					    	<td> {{$index +1}}
+					    		<!--span class="cerro"></span-->
+					    	</td>
+					    	<td>{{club._id}}</td>
+					    	<td>{{club.avgPoints | number:2}}</td>
+					    	<!--td class="hidden-xs hidden-sm">{{club.totalPlayers}}</td-->
+					    </tr>
+					 </table>
+				</p>
+				<br>
+				<div class="text-center">
+					<a href="/#/vote"  class="btn btn-default btn-lg"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Votar! </a>
+				</div>				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- fin clubs -->	
+
+	
+
+

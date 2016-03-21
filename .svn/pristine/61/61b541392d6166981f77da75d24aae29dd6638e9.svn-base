@@ -76,20 +76,6 @@ router.get('/clubs', function(req, res){
 
 
 //************************//
-// Escojo el tamanio sobre el cual voy a elegir jugadores
-// 1 de 5 veces : top50 
-function lengthRandom(length){
-	if (length < 50)
-		return length;
-
-	var res = Math.floor(Math.random() * 5);
-	if (res === 1)
-		return 20;
-	else if (res === 2)
-		return 50;
-	else
-		return length;
-}
 
 // GET getRandom : return 2 player select randomly
 router.get('/random', function(req, res){
@@ -101,8 +87,7 @@ router.get('/random', function(req, res){
 		if (err) throw err;
 
 		// Jugador_1 = j1, Jugador_2 en [a ..i.. b]
-		var length = lengthRandom(players.length);
-		var j1 = Math.floor(Math.random() * length);
+		var j1 = Math.floor(Math.random() * players.length);
 		var a = j1;
 		var b = j1;
 		if ( players.length > config.select.minLength)
