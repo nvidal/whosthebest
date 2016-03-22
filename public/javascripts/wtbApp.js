@@ -1,4 +1,4 @@
-app = angular.module('WTBApp', ['ngRoute', 'ngResource', 'angularUtils.directives.dirPagination']);
+app = angular.module('WTBApp', ['ngRoute', 'ngResource', 'angularUtils.directives.dirPagination', 'chart.js']);
 
 // Configuracion de la rutas de la app.
 app.config(['$routeProvider', function($routeProvider){

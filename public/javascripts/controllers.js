@@ -11,6 +11,34 @@ app.controller('RankCtrl', ['$scope', '$resource',
 			}
 			$scope.players = players;
 		});
+
+		$scope.grafica = function(player){
+			var Players = $resource('/api/players/historial/:id');
+			Players.get({ id : player._id }, function(hist){
+				$scope.labels = hist.labels;
+				$scope.data = [];
+				$scope.data[0] = hist.data;
+			});
+		};
+		$scope.opciones = {
+			scaleStepWidth: -1,
+		    scales: {
+		        yAxes: [
+		            {
+		                reverse: true, // will reverse the scale
+		            }
+		        ]
+		    }
+		};
+		
+		$scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+		//$scope.series = ['Series A', 'Series B'];
+		$scope.data = [[
+		65, 59, 80, 81, 56, 55, 40
+		]];
+		$scope.onClick = function (points, evt) {
+		console.log(points, evt);
+		};
 }]);
 
 app.controller('RankClubsCtrl', ['$scope', '$resource', 

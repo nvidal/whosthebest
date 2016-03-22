@@ -10,7 +10,7 @@ var routes = require('./routes/index');
 var players = require('./routes/players');
 var admin_players = require('./routes/admin-players');
 var admin_stats = require('./routes/admin-stats');
-
+var admin_historial = require('./routes/admin-historial');
 
 var app = express();
 
@@ -82,9 +82,11 @@ app.use('/', routes);
 app.use('/api/players', players);
 app.use('/api/admin/players', admin_players);
 app.use('/api/admin/stats', admin_stats);
+app.use('/api/admin/historial', admin_historial);
 
 // MODELS
 require('./models/player');
+require('./models/playerHist');
 
 
 // catch 404 and forward to error handler

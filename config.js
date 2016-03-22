@@ -3,6 +3,7 @@ var config = {};
 config.select = {};
 config.vote = {};
 config.default = {};
+config.limites = {};
 
 // Valores por defecto
 config.default.times = 0;
@@ -17,6 +18,9 @@ config.select.minVentana = 5; // ventana minima de seleccion
 
 // Vote
 config.vote.NIVEL_PROTEGIDO = 50; // multiplicador para nivel protegido
-config.vote.LIMITE_NIVEL_PROTEGIDO = 20; // jugador esta en nivel protegido si times < limite
+config.vote.LIMITE_NIVEL_PROTEGIDO = 10; // jugador esta en nivel protegido si times < limite
+
+// Limites
+config.limites.limiteGrafica = 20;
 
 module.exports = config;

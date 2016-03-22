@@ -13,6 +13,7 @@ var PlayerSchema = new Schema({
 	points : { type : Number, default : Config.default.points},
 	times : { type : Number, default : Config.default.times},
 	draw : { type : Number, default : Config.default.draw},
+	rankAnterior : { type : Number, default : 0 },
 	created_date: { type: Date, default: Date.now },
 	updated_date: { type: Date, default: Date.now }
 });

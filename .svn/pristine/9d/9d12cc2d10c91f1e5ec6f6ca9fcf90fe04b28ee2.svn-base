@@ -4,7 +4,6 @@ var config = require('../config');
 var mongoosePaginate = require('mongoose-paginate');
 
 
-
 function findPlayerSorted(query, res){
 	Player = mongoose.model('Player');
 	Player.find(query).sort( {points : -1} ).exec(function(err, players){
@@ -256,23 +255,5 @@ function obtenerNivel (player) {
 		return (config.vote.NIVEL_PROTEGIDO - aux) / 2; // 2000 = 20, 4000 = 15, 1000 = 22.5, max = 2.5
 	}
 };
-
-//GET devuelve ordenado las posiciones por semana para 
-// mostrarlo en la grafica
-router.get('/historial/:id', function(req, res){
-	PlayerHist = mongoose.model('PlayersHist');
-	PlayerHist.find({playerId : req.params.id}).sort({ fecha : -1})
-		.limit(config.limites.limiteGrafica).exec(function(err, hist){
-		if (err) throw err;
-		
-		grafica = { labels : [],
-					data : [] };
-		for (i = hist.length; i> 0; i--){
-			grafica.labels.push(hist[i-1].fecha);
-			grafica.data.push(hist[i-1].rank);
-		}
-		res.json(grafica);
-	});
-});
 
 module.exports = router;

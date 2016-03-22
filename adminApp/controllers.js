@@ -107,6 +107,55 @@ app.controller('StatsAdminCtrl', ['$scope', '$resource', '$location', '$routePar
 		});
 	}]);
 
+// CONTROLLER DE HISTORIAL
+app.controller('HistorialCtrl', ['$scope', '$resource', '$location', '$routeParams',
+	function($scope, $resource, $location, $routeParams){
+
+		var Hist = $resource('/api/admin/historial/list');
+		Hist.query({}, function(hist){
+			$scope.historial = [];
+			for(i=0; i<hist.length; i++){
+				$scope.historial[i] = {
+					fecha : hist[i]._id,
+					players : hist[i].players
+				};
+			};
+
+		});
+
+		$scope.orderByField = 'fecha';
+  		$scope.reverseSort = true;
+
+  		$scope.sort = function(keyname){
+        	$scope.sortKey = keyname;   //set the sortKey to the param passed
+        	$scope.reverse = !$scope.reverse; //if true make it false and vice versa
+    	}
+
+  		$scope.grabar = function (){
+			var res = confirm("Se va a grabar la semana actual, ok ?");
+
+			if (res == true) {
+				var Hist = $resource('/api/admin/historial/grabar');
+				Hist.save({}, function(result){
+					alert('Grabada con exito!');
+
+					var List = $resource('/api/admin/historial/list');
+					List.query({}, function(hist){
+						$scope.historial = [];
+						for(i=0; i<hist.length; i++){
+							$scope.historial[i] = {
+								fecha : hist[i]._id,
+								players : hist[i].players
+							};
+						};
+					});
+				});	
+			}
+		};
+
+	}]);
+
+
 // CONTROLLER DE USUARIO ADM
 /*app.controller('PasswordCtrl', ['$scope', '$resource', '$location', '$routeParams',
 	function($scope, $resource, $location, $routeParams){

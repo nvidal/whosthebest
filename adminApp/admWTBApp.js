@@ -15,6 +15,10 @@ app.config(['$routeProvider', function($routeProvider){
 		templateUrl : 'views/password.html',
 		controller : 'PasswordCtrl'
 	})*/
+	.when('/historial', {
+		templateUrl : 'views/historial.html',
+		controller : 'HistorialCtrl'
+	})
 	.when('/edit/:id', {
 		templateUrl : 'views/edit-player.html',
 		controller : 'PlayerEditCtrl'

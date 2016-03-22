@@ -11,16 +11,26 @@
 				<p>
 					<table class="table">
 					    <thead>
-					  	<th>#</th>
+					  	<th># <span title="Semana anterior" style:"font-size:5px;">(ant.)</span></th>
 					  	<th>Jugador</th>
 					  	<th class="hidden-xs">Club</th>
 					  	<th>Puntaje</th>
 					    </thead>
 					    <tbody>
 						    <tr dir-paginate="player in players | orderBy : '-points' | filter:search | itemsPerPage:10">
-						    	<td>{{player.rank}}</td>
+						    	<!-- LA DIFERENCIA ES: player.rank - player.rankAnterior -->
+						    	<td ng-show="player.rank == player.rankAnterior">{{player.rank}}
+									<span class="glyphicon glyphicon-minus" style="color:grey; font-size:8px;" title="0"></span>
+						    	</td>
+						    	<td ng-show="player.rank < player.rankAnterior">{{player.rank}}
+									<span class="glyphicon glyphicon-triangle-top" style="color:green; font-size:8px;" title="{{player.rankAnterior - player.rank}}"></span>
+						    	</td>
+						    	<td ng-show="player.rank > player.rankAnterior">{{player.rank}}
+									<span class="glyphicon glyphicon-triangle-bottom" style="color:red; font-size:8px;" title="{{player.rank - player.rankAnterior}}"></span>
+						    	</td>
+
 						    	<td>
-							   <a data-toggle="modal" data-target="#modalDetalle{{player.rank}}" style="cursor: pointer">{{player.name}} {{player.lastname}}</a>
+							   <a data-toggle="modal" data-target="#modalDetalle{{player.rank}}" style="cursor: pointer" ng-click="grafica(player)">{{player.name}} {{player.lastname}}</a>
 								<!-- Modal -->
 								<div class="modal fade" id="modalDetalle{{player.rank}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
 								  <div class="modal-dialog" role="document">
@@ -55,7 +65,14 @@
 											  </tr>								  
 											</tbody>
 										  </table>
-									</div><!--/col-->      
+									</div><!--/col--> 
+										<!-- GRAFICA DE EVOLUCION
+										<div class="hidden-xs col-sm-8 col-md-8 col-lg-8">
+											<strong>Evolución:</strong>
+										<canvas id="line" class="chart chart-line" chart-data="data"
+										  chart-labels="labels" chart-legend="false" chart-series="series">
+										</canvas> 
+										</div> -->  
 									</div>
 								      </div>
 								      <div class="modal-footer">
