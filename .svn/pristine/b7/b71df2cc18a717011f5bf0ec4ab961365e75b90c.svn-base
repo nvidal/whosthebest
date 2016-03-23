@@ -1,0 +1,56 @@
+<div class="page-header text-center" >
+	<h1>
+    <a class="btn btn-md btn-success" href="/adm#/">
+      <span class="glyphicon glyphicon-arrow-left" style="color:white" aria-hidden="true"></span>
+    </a>
+    Historial Semanal
+  </h1>
+</div>
+
+
+<div class="panel panel-default col-md-10 col-md-offset-1" style="padding:0px; ">
+  <!-- Default panel contents -->
+  <div class="panel-heading text-center" >
+    <h3>Semanas</h3>
+  </div>
+<div>
+
+  <!-- Table -->
+  <table class="table">
+  	<!--th>#</th-->
+  	<th ng-click="sort('fecha')">Fecha
+      <span class="glyphicon sort-icon" ng-show="sortKey=='fecha'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+    </th>
+    <th ng-click="sort('players')">Jugadores
+      <span class="glyphicon sort-icon" ng-show="sortKey=='players'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+    </th>
+
+    <tr dir-paginate="hist in historial|orderBy:sortKey:reverse|itemsPerPage:10">
+    	<!--td>{{$index + currentPage*itemsPerPage +1}}</td-->
+    	<td>{{hist.fecha | date: 'dd-MM-yyyy'}}</td>
+      <td>{{hist.players}}</td>
+    </tr>
+  </table>
+
+</div>
+</div>
+
+<div class="text-center">
+  <dir-pagination-controls
+     max-size="5"
+     direction-links="true"
+     boundary-links="true" >
+  </dir-pagination-controls>
+</div>
+
+<br>
+<div class="text-center">
+    <div class="btn-group">
+      <button type="button" class="btn btn-success btn-lg" ng-click="grabar()"> 
+        Grabar semana
+      </button>
+    </div>
+  </div>
+<!--
+<div class="btn-group btn-group-justified" role="group"-->
+  

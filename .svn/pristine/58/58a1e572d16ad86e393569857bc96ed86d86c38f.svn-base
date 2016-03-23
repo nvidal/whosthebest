@@ -5,9 +5,9 @@
 		<div class="row">
  			<div class="col-lg-10 col-lg-offset-1 ">
 				<div class="title">Ranking del Futbol Uruguayo</div>
-					<div class="col-md-3 col-sm-2"><!-- FIXME: ¿por que no agarra el offset? -->
+					<div class="col-md-3"><!-- FIXME: ¿por que no agarra el offset? -->
 					</div>
-					<div class="col-md-6 col-sm-8 bs-callout hidden-xs spacer">
+					<div class="col-md-6 bs-callout  hidden-xs spacer">
 					    <div class="col-xs-6 col-md-6 text-center ">
 						<div class="profile-header-container">   
 					    		<div class="profile-header-img">
@@ -51,7 +51,7 @@
 				<p>
 					<table class="table table-striped">
 					    <thead>
-					  	<th># <!--span title="Semana anterior" style:"font-size:5px;">(ant.)</span--></th>
+					  	<th># <span title="Semana anterior" style:"font-size:5px;">(ant.)</span></th>
 					  	<th>Jugador</th>
 					  	<th class="hidden-xs">Club</th>
 					  	<th>Puntaje</th>
@@ -60,13 +60,13 @@
 						    <tr dir-paginate="player in players | orderBy : '-points' | filter:search | itemsPerPage:10">
 						    	<!-- LA DIFERENCIA ES: player.rank - player.rankAnterior -->
 						    	<td ng-show="player.rank == player.rankAnterior">{{player.rank}}
-									<span class="glyphicon glyphicon-minus" style="color:grey; font-size:10px;" title="0"></span>
+									<span class="glyphicon glyphicon-minus" style="color:grey; font-size:8px;" title="0"></span>
 						    	</td>
 						    	<td ng-show="player.rank < player.rankAnterior">{{player.rank}}
-									<span class="glyphicon glyphicon-triangle-top" style="color:green; font-size:10px;" title="{{player.rankAnterior - player.rank}}"></span>
+									<span class="glyphicon glyphicon-triangle-top" style="color:green; font-size:8px;" title="{{player.rankAnterior - player.rank}}"></span>
 						    	</td>
 						    	<td ng-show="player.rank > player.rankAnterior">{{player.rank}}
-									<span class="glyphicon glyphicon-triangle-bottom" style="color:red; font-size:10px;" title="{{player.rank - player.rankAnterior}}"></span>
+									<span class="glyphicon glyphicon-triangle-bottom" style="color:red; font-size:8px;" title="{{player.rank - player.rankAnterior}}"></span>
 						    	</td>
 
 						    	<td>
@@ -97,18 +97,7 @@
 											  </tr>	
 											  <tr>
 												<td><strong>Ranking:</strong></td>
-												<td ng-show="player.rank == player.rankAnterior">{{player.rank}} &nbsp;
-													<span class="glyphicon glyphicon-minus" style="color:grey; font-size:10px;" title="0"></span>
-													(0)
-										    	</td>
-										    	<td ng-show="player.rank < player.rankAnterior">{{player.rank}} &nbsp;
-													<span class="glyphicon glyphicon-triangle-top" style="color:green; font-size:10px;"></span>
-													(+{{player.rankAnterior - player.rank}})
-										    	</td>
-										    	<td ng-show="player.rank > player.rankAnterior">{{player.rank}} &nbsp;
-													<span class="glyphicon glyphicon-triangle-bottom" style="color:red; font-size:10px;"></span>
-													(-{{player.rank - player.rankAnterior}})
-										    	</td>
+												<td>{{player.rank}}</td>
 											  </tr>	
 											  <tr>
 												<td><strong>Puntaje:</strong></td>

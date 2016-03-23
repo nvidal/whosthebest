@@ -1,15 +1,15 @@
 <nav class="navbar navbar-default menu-bg" role="navigation">
   <div class="container">
-	  <div class="navbar-header col-md-4 col-sm-5">
+	  <div class="navbar-header col-md-4">
 	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 	      <span class="sr-only">Desplegar navegación</span>
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	    </button>
-	    <a class="navbar-brand" href="http://www.ranking.uy">
-            <img class="logo img-responsive" src="../images/ranklogo.png" alt="">
-        </a>
+	    <a class="navbar-brand hidden-xs" href="http://www.ranking.uy">
+                    <img class="logo img-responsive" src="../images/ranklogo.png" alt="">
+            </a>
 	    <h1>Ranking.UY</h1>
 	  </div>
 
