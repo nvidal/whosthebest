@@ -1,0 +1,20 @@
+var express = require('express');
+var router = express.Router();
+
+function findClubSorted(query, res){
+	Player = mongoose.model('Club');
+	Player.find(query).sort( {name : -1} ).exec(function(err, clubs){
+		if (err) throw err;
+
+		res.json(clubs);
+	});
+};
+
+// GET getAll
+router.get('/', function(req, res){
+	findClubSorted({}, res);
+});
+
+
+
+module.exports = router;
