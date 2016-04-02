@@ -1,0 +1,66 @@
+<div class="page-header text-center" >
+	<h1>
+    <a class="btn btn-md btn-success" href="/adm#/">
+      <span class="glyphicon glyphicon-arrow-left" style="color:white" aria-hidden="true"></span>
+    </a>
+    Mejor Equipo
+  </h1>
+</div>
+
+<!--select ng-model="formacion" convert-to-number>
+  <option value="442">4-4-2</option>
+  <option value="433">4-3-3</option>
+  <option value="343">3-4-3</option>
+</select>
+{{formacion}}-->
+
+<div class="panel panel-default col-md-10 col-md-offset-1" style="padding:0px; ">
+  <!-- Default panel contents -->
+  <div class="panel-heading text-center" >
+    <h3>Jugadores</h3>
+  </div>
+<div>
+
+  <!-- Table -->
+  <table class="table">
+  	<!--th>#</th-->
+  	<th>Posicion</th>
+    <th>Jugador</th>
+    <th>Club</th>
+  	<th>Pts</th>
+
+
+    <tr ng-repeat="player in arq">
+    	<!--td>{{$index + currentPage*itemsPerPage +1}}</td-->
+    	<td>{{player.position}}</td>
+      <td>{{player.name}} {{player.lastname}}</td>
+      <td>{{player.club}}</td>
+    	<td>{{player.points | number:2}}</td>
+    </tr>
+    <tr ng-repeat="player in def">
+      <!--td>{{$index + currentPage*itemsPerPage +1}}</td-->
+      <td>{{player.position}}</td>
+      <td>{{player.name}} {{player.lastname}}</td>
+      <td>{{player.club}}</td>
+      <td>{{player.points | number:2}}</td>
+    </tr>
+    <tr ng-repeat="player in med">
+      <!--td>{{$index + currentPage*itemsPerPage +1}}</td-->
+      <td>{{player.position}}</td>
+      <td>{{player.name}} {{player.lastname}}</td>
+      <td>{{player.club}}</td>
+      <td>{{player.points | number:2}}</td>
+    </tr>
+    <tr ng-repeat="player in del">
+      <!--td>{{$index + currentPage*itemsPerPage +1}}</td-->
+      <td>{{player.position}}</td>
+      <td>{{player.name}} {{player.lastname}}</td>
+      <td>{{player.club}}</td>
+      <td>{{player.points | number:2}}</td>
+    </tr>
+  </table>
+
+</div>
+</div>
+
+

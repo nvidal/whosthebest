@@ -155,6 +155,30 @@ app.controller('HistorialCtrl', ['$scope', '$resource', '$location', '$routePara
 
 	}]);
 
+app.controller('MejorEquipoCtrl', ['$scope', '$resource', '$location', '$routeParams',
+	function($scope, $resource, $location, $routeParams){
+
+		var Player = $resource('/api/players/mejores/:position/:cant');
+		Player.query({ position: "Arquero", cant: 1 }, function(players){
+			$scope.arq = players;
+		});
+		var Player = $resource('/api/players/mejores/:position/:cant');
+		Player.query({ position: "Defensa", cant: 4 }, function(players){
+			$scope.def = players;
+		});
+		var Player = $resource('/api/players/mejores/:position/:cant');
+		Player.query({ position: "Mediocampista", cant: 4 }, function(players){
+			$scope.med = players;
+		});
+		var Player = $resource('/api/players/mejores/:position/:cant');
+		Player.query({ position: "Delantero", cant: 2 }, function(players){
+			$scope.del = players;
+		});
+
+		$scope.formacion = 442;
+//		players = [];
+//		$scope.players = players.concat($scope.arq, $scope.def, $scope.med, $scope.del);
+	}]);
 
 // CONTROLLER DE USUARIO ADM
 /*app.controller('PasswordCtrl', ['$scope', '$resource', '$location', '$routeParams',

@@ -27,6 +27,10 @@ app.config(['$routeProvider', function($routeProvider){
 		templateUrl : 'views/form-player.html',
 		controller : 'PlayerCtrl'
 	})
+	.when('/mejor11', {
+		templateUrl : 'views/mejor11.html',
+		controller : 'MejorEquipoCtrl'
+	})
 	.otherwise({
 		redirectTo : '/'
 	})

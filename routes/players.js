@@ -273,4 +273,15 @@ router.get('/historial/:id', function(req, res){
 	});
 });
 
+//GET Mejor 11
+router.get('/mejores/:position/:cant', function(req, res){
+	Player = mongoose.model('Player');
+	Player.find( {position : req.params.position}).sort({ points : -1})
+		.limit(req.params.cant).exec(function(err, players){
+			if (err) throw err;
+
+			res.json(players);
+		});
+});
+
 module.exports = router;
