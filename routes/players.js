@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var config = require('../config');
 var mongoosePaginate = require('mongoose-paginate');
+var moment = require('moment');
 
 function findPlayerSorted(query, res){
 	Player = mongoose.model('Player');
@@ -266,7 +267,7 @@ router.get('/historial/:id', function(req, res){
 		grafica = { labels : [],
 					data : [] };
 		for (i = hist.length; i> 0; i--){
-			grafica.labels.push(hist[i-1].fecha);
+			grafica.labels.push(moment(hist[i-1].fecha).format('DD/MM'));
 			grafica.data.push(hist[i-1].rank);
 		}
 		res.json(grafica);

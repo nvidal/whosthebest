@@ -16,6 +16,9 @@ app.controller('RankCtrl', ['$scope', '$resource',
 		$scope.grafica = function(player){
 			var Players = $resource('/api/players/historial/:id');
 			Players.get({ id : player._id }, function(hist){
+				hist.labels.push("Actual");
+				hist.data.push(player.rank);
+				
 				$scope.labels = hist.labels;
 				$scope.data = [];
 				$scope.data[0] = hist.data;

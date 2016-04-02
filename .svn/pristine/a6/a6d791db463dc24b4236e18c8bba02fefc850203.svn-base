@@ -1,0 +1,83 @@
+<div class="page-header text-center" >
+	<h1>
+    Inicio
+  </h1>
+</div>
+
+<!--div class="btn-group btn-group-justified" role="group"-->
+<div class="text-center">
+		<a href='/adm#/list' class="btn btn-primary btn-lg"> Administrar jugadores </a>
+		<a href='/adm#/historial' class="btn btn-primary btn-lg"> Ver historial </a>
+		<a href='/adm#/mejor11' class="btn btn-primary btn-lg"> Mejor Equipo </a>
+		<!--a href='/adm#/password' class="btn btn-primary btn-lg"> Cambiar contraseña </a-->
+</div>
+<!--/div-->
+<br>
+
+<div class="col-md-8 col-md-offset-2">
+	<ul class="list-group">
+	  <li class="list-group-item">
+	    <span class="badge">{{stats.totalTimes/2}}</span>
+	    Votos totales
+	  </li>
+	  <li class="list-group-item">
+	    <span class="badge">{{stats.totalDraws/2}}</span>
+	    Sorteos totales
+	  </li>
+	  <li class="list-group-item">
+	    <span class="badge">{{stats.avgDraws | number:2}}</span>
+	    Sorteos promedio
+	  </li>
+	  <li class="list-group-item">
+	    <span class="badge">{{stats.avgTimes | number:2}}</span>
+	    Votos promedio
+	  </li>
+	  <li class="list-group-item">
+	    <span class="badge">{{stats.totalPlayers}}</span>
+	    Total jugadores
+	  </li>
+	</ul>
+</div>
+
+<div class="panel panel-default col-md-10 col-md-offset-1" style="padding:0px; ">
+  <!-- Default panel contents -->
+  	<div class="panel-heading text-center">
+  		<h2>Estadisticas </h2>
+	</div>
+
+	<table class="table table-bordered">
+  	<th>
+  		<a href="" ng-click="orderByField='_id'; reverseSort = !reverseSort">
+  			Club
+		</a>
+  	</th>
+  	<th>
+  		<a href="" ng-click="orderByField='avgPoints'; reverseSort = !reverseSort">
+  			Pts
+		</a>
+  	</th>
+  	<th>
+  		<a href="" ng-click="orderByField='avgTimes'; reverseSort = !reverseSort">
+  			Votos
+		</a>
+  	</th>
+  	<th>
+  		<a href="" ng-click="orderByField='avgDraws'; reverseSort = !reverseSort">
+  			Sorteados
+		</a>
+  	</th>
+
+    <tr ng-repeat="club in clubStats |orderBy:orderByField:reverseSort">
+		<td>{{club._id}}</td>
+		<td>{{club.avgPoints | number:2}}</td>
+		<td>{{club.avgTimes | number:2}}</td>
+		<td>{{club.avgDraws | number:2}}</td>
+		<!--
+		<td>{{club.totalPlayers }}</td>
+		<td>{{club.maxTimes}} ({{club.maxDraws | number:2}})</td>
+		<td>{{club.minTimes}} ({{club.minDraws | number:2}})</td>
+	-->
+    </tr>
+  </table>
+</div>
+
