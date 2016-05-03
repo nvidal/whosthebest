@@ -285,4 +285,17 @@ router.get('/mejores/:position/:cant', function(req, res){
 		});
 });
 
+//GET Mejor 11
+router.get('/mejores/:position/:cant/:club', function(req, res){
+	//if (req.params.club == null)
+
+	Player = mongoose.model('Player');
+	Player.find( {position : req.params.position, club : req.params.club }).sort({ points : -1})
+		.limit(req.params.cant).exec(function(err, players){
+			if (err) throw err;
+
+			res.json(players);
+		});
+});
+
 module.exports = router;

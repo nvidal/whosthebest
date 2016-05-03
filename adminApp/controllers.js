@@ -158,26 +158,55 @@ app.controller('HistorialCtrl', ['$scope', '$resource', '$location', '$routePara
 app.controller('MejorEquipoCtrl', ['$scope', '$resource', '$location', '$routeParams',
 	function($scope, $resource, $location, $routeParams){
 
+		var Clubs = $resource('/api/clubs/');
+		Clubs.query({},function(clubs){
+			$scope.clubs = [{name : "GENERAL"}];
+			$scope.clubs = $scope.clubs.concat(clubs);
+
+			$scope.formaciones = ["442","433","343","541","352"];
+		});
+
 		var Player = $resource('/api/players/mejores/:position/:cant');
 		Player.query({ position: "Arquero", cant: 1 }, function(players){
 			$scope.arq = players;
 		});
-		var Player = $resource('/api/players/mejores/:position/:cant');
+		//var Player = $resource('/api/players/mejores/:position/:cant');
 		Player.query({ position: "Defensa", cant: 4 }, function(players){
 			$scope.def = players;
 		});
-		var Player = $resource('/api/players/mejores/:position/:cant');
+		//var Player = $resource('/api/players/mejores/:position/:cant');
 		Player.query({ position: "Mediocampista", cant: 4 }, function(players){
 			$scope.med = players;
 		});
-		var Player = $resource('/api/players/mejores/:position/:cant');
+		//var Player = $resource('/api/players/mejores/:position/:cant');
 		Player.query({ position: "Delantero", cant: 2 }, function(players){
 			$scope.del = players;
 		});
 
-		$scope.formacion = 442;
+		$scope.formacion = "442";
+		$scope.club = "GENERAL";
 //		players = [];
 //		$scope.players = players.concat($scope.arq, $scope.def, $scope.med, $scope.del);
+
+		$scope.generar = function(){
+
+			if ($scope.club == "GENERAL")
+				var Player = $resource('/api/players/mejores/:position/:cant');
+			else
+				var Player = $resource('/api/players/mejores/:position/:cant/:club');
+			Player.query({ position: "Arquero", cant: 1, club: $scope.club }, function(players){
+				$scope.arq = players;
+			});
+			Player.query({ position: "Defensa", cant: $scope.formacion.charAt(0), club: $scope.club }, function(players){
+				$scope.def = players;
+			});
+			Player.query({ position: "Mediocampista", cant: $scope.formacion.charAt(1), club: $scope.club }, function(players){
+				$scope.med = players;
+			});
+			Player.query({ position: "Delantero", cant: $scope.formacion.charAt(2), club: $scope.club }, function(players){
+				$scope.del = players;
+			});
+		};
 	}]);
 
 // CONTROLLER DE USUARIO ADM

@@ -14,6 +14,20 @@
 </select>
 {{formacion}}-->
 
+<div class="text-center">
+  <select ng-model="club">
+    <option ng-repeat="x in clubs">{{x.name}}</option>
+  </select>
+  <select ng-model="formacion">
+    <option ng-repeat="x in formaciones">{{x}}</option>
+  </select>
+
+  <button type="button" class="btn btn-default" ng-click="generar()" aria-label="Left Align">
+    <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+  </button>
+  
+</div>
+
 <div class="panel panel-default col-md-10 col-md-offset-1" style="padding:0px; ">
   <!-- Default panel contents -->
   <div class="panel-heading text-center" >
