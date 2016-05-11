@@ -42,7 +42,6 @@
     <th>Jugador</th>
     <th>Club</th>
   	<th>Pts</th>
-    <th>CSS</th>
 
 
     <tr ng-repeat="player in arq">
@@ -51,7 +50,6 @@
       <td>{{player.name}} {{player.lastname}}</td>
       <td>{{player.club}}</td>
     	<td>{{player.points | number:2}}</td>
-      <td>{{player.css}}</td>
     </tr>
     <tr ng-repeat="player in def">
       <!--td>{{$index + currentPage*itemsPerPage +1}}</td-->
@@ -59,7 +57,6 @@
       <td>{{player.name}} {{player.lastname}}</td>
       <td>{{player.club}}</td>
       <td>{{player.points | number:2}}</td>
-      <td>{{player.css}}</td>
     </tr>
     <tr ng-repeat="player in med">
       <!--td>{{$index + currentPage*itemsPerPage +1}}</td-->
@@ -67,7 +64,6 @@
       <td>{{player.name}} {{player.lastname}}</td>
       <td>{{player.club}}</td>
       <td>{{player.points | number:2}}</td>
-      <td>{{player.css}}</td>
     </tr>
     <tr ng-repeat="player in del">
       <!--td>{{$index + currentPage*itemsPerPage +1}}</td-->
@@ -75,7 +71,6 @@
       <td>{{player.name}} {{player.lastname}}</td>
       <td>{{player.club}}</td>
       <td>{{player.points | number:2}}</td>
-      <td>{{player.css}}</td>
     </tr>
   </table>
 

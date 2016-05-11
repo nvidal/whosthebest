@@ -1,0 +1,33 @@
+<div id="main-content">
+	<div class="container">
+		<div class="row hidden-sm hidden-xs">
+			<div class="title">Equipo ideal del fútbol uruguayo 
+			</div>
+			<br>
+		</div>
+		<div class="row">	
+			<div class="lineup-general">
+				<div class="lineup-container">
+					<img class="cancha" src="../images/field.png">
+					<div class="lineup-player goalkeeper">
+						<img class="lineup-img" src="http://www.auf.org.uy/Portal/ImageViewer.ashx?id=54086">					
+					</div>
+					<div class="lineup-name goalkeeper-name" >Felipe Carballo</div>
+
+					<div class="lineup-player def-3-1" >
+						<img class="lineup-img" src="http://xdemo6.daext.com/wp-content/uploads/2014/07/player.png">
+					</div>
+
+					<div class="lineup-player def-3-2" >
+						<img class="lineup-img" src="http://xdemo6.daext.com/wp-content/uploads/2014/07/player.png">
+					</div>
+
+					<div class="lineup-player def-3-3" >
+						<img class="lineup-img" src="http://xdemo6.daext.com/wp-content/uploads/2014/07/player.png">
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

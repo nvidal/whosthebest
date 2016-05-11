@@ -155,7 +155,6 @@ app.controller('HistorialCtrl', ['$scope', '$resource', '$location', '$routePara
 
 	}]);
 
-//MEJOR 11
 app.controller('MejorEquipoCtrl', ['$scope', '$resource', '$location', '$routeParams',
 	function($scope, $resource, $location, $routeParams){
 
@@ -164,8 +163,30 @@ app.controller('MejorEquipoCtrl', ['$scope', '$resource', '$location', '$routePa
 			$scope.clubs = [{name : "GENERAL"}];
 			$scope.clubs = $scope.clubs.concat(clubs);
 
-			$scope.formaciones = ["442","433","343","541","352", "451"];
+			$scope.formaciones = ["442","433","343","541","352"];
 		});
+
+		var Player = $resource('/api/players/mejores/:position/:cant');
+		Player.query({ position: "Arquero", cant: 1 }, function(players){
+			$scope.arq = players;
+		});
+		//var Player = $resource('/api/players/mejores/:position/:cant');
+		Player.query({ position: "Defensa", cant: 4 }, function(players){
+			$scope.def = players;
+		});
+		//var Player = $resource('/api/players/mejores/:position/:cant');
+		Player.query({ position: "Mediocampista", cant: 4 }, function(players){
+			$scope.med = players;
+		});
+		//var Player = $resource('/api/players/mejores/:position/:cant');
+		Player.query({ position: "Delantero", cant: 2 }, function(players){
+			$scope.del = players;
+		});
+
+		$scope.formacion = "442";
+		$scope.club = "GENERAL";
+//		players = [];
+//		$scope.players = players.concat($scope.arq, $scope.def, $scope.med, $scope.del);
 
 		$scope.generar = function(){
 
@@ -175,37 +196,18 @@ app.controller('MejorEquipoCtrl', ['$scope', '$resource', '$location', '$routePa
 				var Player = $resource('/api/players/mejores/:position/:cant/:club');
 			Player.query({ position: "Arquero", cant: 1, club: $scope.club }, function(players){
 				$scope.arq = players;
-				$scope.arq[0].css = 'goalkeeper';
 			});
-			var cant_def = $scope.formacion.charAt(0);
-			Player.query({ position: "Defensa", cant: cant_def, club: $scope.club }, function(players){
+			Player.query({ position: "Defensa", cant: $scope.formacion.charAt(0), club: $scope.club }, function(players){
 				$scope.def = players;
-				for (var i=0; i< cant_def;i++){
-					$scope.def[i].css = 'def-'+cant_def+'-'+(i+1);
-				}
 			});
-			var cant_med = $scope.formacion.charAt(1);
-			Player.query({ position: "Mediocampista", cant: cant_med, club: $scope.club }, function(players){
+			Player.query({ position: "Mediocampista", cant: $scope.formacion.charAt(1), club: $scope.club }, function(players){
 				$scope.med = players;
-				for (var i=0; i< cant_med;i++){
-					$scope.med[i].css = 'med-'+cant_med+'-'+(i+1);
-				}
 			});
-			var cant_del = $scope.formacion.charAt(2);
-			Player.query({ position: "Delantero", cant: cant_del, club: $scope.club }, function(players){
+			Player.query({ position: "Delantero", cant: $scope.formacion.charAt(2), club: $scope.club }, function(players){
 				$scope.del = players;
-				for (var i=0; i< cant_del;i++){
-					$scope.del[i].css = 'del-'+cant_del+'-'+(i+1);
-				}
 			});
 		};
-
-		$scope.formacion = "442";
-		$scope.club = "GENERAL";
-		$scope.generar();
-
 	}]);
-
 
 // CONTROLLER DE USUARIO ADM
 /*app.controller('PasswordCtrl', ['$scope', '$resource', '$location', '$routeParams',
