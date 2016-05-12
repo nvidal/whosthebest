@@ -118,10 +118,7 @@ app.controller('MejorEquipoCtrl', ['$scope', '$resource', '$location', '$routePa
 			$scope.clubs = $scope.clubs.concat(clubs);
 
 			$scope.formaciones = ["442","433","343","541","352", "451"];
-			$scope.formacion = "442";
-			$scope.club = "GENERAL";
-			$scope.generar();
-
+			
 		});
 
 		$scope.generar = function(){
@@ -157,6 +154,12 @@ app.controller('MejorEquipoCtrl', ['$scope', '$resource', '$location', '$routePa
 			});
 		};
 
+
+		$scope.formaciones = ["442"];
+		$scope.clubs = ["GENERAL"];
+		$scope.formacion = "442";
+		$scope.club = "GENERAL";
+		$scope.generar();
 
 
 	}]);
