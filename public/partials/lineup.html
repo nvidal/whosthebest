@@ -5,11 +5,24 @@
 			</div>
 			<br>
 		</div>
-		<div class="text-center">
+		<!--div class="text-center">
 		  <select class="selectpicker show-menu-arrow" data-width="auto" ng-model="club">
 		    <option ng-repeat="x in clubs">{{x.name}}</option>
 		  </select>
 		  <select class="selectpicker show-menu-arrow" data-width="fit" ng-model="formacion">
+		    <option ng-repeat="x in formaciones">{{x}}</option>
+		  </select>
+
+		  <button type="button" class="btn btn-default" ng-click="generar()" aria-label="Left Align">
+		    <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+		  </button>
+		  
+		</div-->
+		<div class="text-center">
+		  <select  ng-model="club">
+		    <option ng-repeat="x in clubs">{{x.name}}</option>
+		  </select>
+		  <select  ng-model="formacion">
 		    <option ng-repeat="x in formaciones">{{x}}</option>
 		  </select>
 
