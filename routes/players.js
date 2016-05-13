@@ -268,7 +268,7 @@ router.get('/historial/:id', function(req, res){
 					data : [] };
 		for (i = hist.length; i> 0; i--){
 			grafica.labels.push(moment(hist[i-1].fecha).format('DD/MM'));
-			grafica.data.push(hist[i-1].rank);
+			grafica.data.push(hist[i-1].rank*-1);
 		}
 		res.json(grafica);
 	});

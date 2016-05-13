@@ -1,0 +1,63 @@
+<div id="main-content">
+	<div class="container">
+		<div class="row hidden-sm hidden-xs">
+			<div class="title">Equipo ideal del fútbol uruguayo 
+			</div>
+			<br>
+		</div>
+		<!--div class="text-center">
+		  <select class="selectpicker show-menu-arrow" data-width="auto" ng-model="club">
+		    <option ng-repeat="x in clubs">{{x.name}}</option>
+		  </select>
+		  <select class="selectpicker show-menu-arrow" data-width="fit" ng-model="formacion">
+		    <option ng-repeat="x in formaciones">{{x}}</option>
+		  </select>
+
+		  <button type="button" class="btn btn-default" ng-click="generar()" aria-label="Left Align">
+		    <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+		  </button>
+		  
+		</div-->
+		<div class="text-center">
+		  <select  ng-model="club">
+		    <option ng-repeat="x in clubs">{{x.name}}</option>
+		  </select>
+		  <select  ng-model="formacion">
+		    <option ng-repeat="x in formaciones">{{x}}</option>
+		  </select>
+
+		  <button type="button" class="btn btn-default" ng-click="generar()" aria-label="Left Align">
+		    <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+		  </button>
+		  
+		</div>
+		<div class="row">	
+			<div class="lineup-general">
+				<div class="lineup-container">
+					<img class="cancha" src="../images/field.png">
+					
+					<div ng-repeat="player in arq" class="lineup-player {{player.css}}">
+						<div class="lineup-img-container"><img class="lineup-img" src="{{player.image}}"></div>
+						<div class="lineup-name">{{player.name}} {{player.lastname}}  </div>
+					</div>
+	
+					<div ng-repeat="player in def" class="lineup-player {{player.css}}">
+						<div class="lineup-img-container"><img class="lineup-img" src="{{player.image}}"></div>		
+						<div class="lineup-name">{{player.name}} {{player.lastname}}  </div>			
+					</div>
+
+					<div ng-repeat="player in med" class="lineup-player {{player.css}}">
+						<div class="lineup-img-container"><img class="lineup-img" src="{{player.image}}"></div>		
+						<div class="lineup-name">{{player.name}} {{player.lastname}}  </div>				
+					</div>
+
+					<div ng-repeat="player in del" class="lineup-player {{player.css}}">
+						<div class="lineup-img-container"><img class="lineup-img" src="{{player.image}}"></div>		
+						<div class="lineup-name">{{player.name}} {{player.lastname}}  </div>				
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

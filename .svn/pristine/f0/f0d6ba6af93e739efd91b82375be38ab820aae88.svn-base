@@ -17,22 +17,13 @@ app.controller('RankCtrl', ['$scope', '$resource',
 			var Players = $resource('/api/players/historial/:id');
 			Players.get({ id : player._id }, function(hist){
 				hist.labels.push("Actual");
-				hist.data.push(player.rank*-1);
+				hist.data.push(player.rank);
 				
 				$scope.labels = hist.labels;
 				$scope.data = [];
 				$scope.data[0] = hist.data;
 			});
 		};
-		$scope.opt = {
-            scale: {
-                reverse: true,
-                ticks: {
-                    beginAtZero: true
-                }
-            }
-    	};
-
 		$scope.opciones = {
 			scaleStepWidth: -1,
 		    scales: {
