@@ -1,0 +1,119 @@
+<div class="page-header text-center" >
+	<h1>
+    <a class="btn btn-md btn-success" href="/adm#/">
+      <span class="glyphicon glyphicon-arrow-left" style="color:white" aria-hidden="true"></span>
+    </a>
+    Lista de jugadores
+  </h1>
+</div>
+
+  <!--div class="btn-group" role="group">
+      <button type="button" class="btn btn-lg btn-success" ng-click="checkImg()">Comprobar</button>
+    </div-->
+
+<div class="panel panel-default col-md-10 col-md-offset-1" style="padding:0px; ">
+  <!-- Default panel contents -->
+  <div class="panel-heading text-center" >
+    <h3>Jugadores</h3>
+    <!--input de busqueda-->
+    <form class="form-inline">
+        <div class="form-group">
+            <label >Buscar</label>
+            <input type="text" ng-model="search" class="form-control" placeholder="Buscar">
+        </div>
+    </form>
+  </div>
+<div>
+
+  <!-- Table -->
+  <table class="table">
+  	<th>#</th>
+  	<th ng-click="sort('lastname')">Jugador
+      <span class="glyphicon sort-icon" ng-show="sortKey=='lastname'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+    </th>
+    <th ng-click="sort('club')">Club
+      <span class="glyphicon sort-icon" ng-show="sortKey=='club'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+    </th>
+  	<th ng-click="sort('points')">Pts
+        <span class="glyphicon sort-icon" ng-show="sortKey=='points'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+    </th>
+    <th ng-click="sort('times')">Votos
+      <span class="glyphicon sort-icon" ng-show="sortKey=='times'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+    </th>
+    <th ng-click="sort('draw')">Draws
+      <span class="glyphicon sort-icon" ng-show="sortKey=='draw'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+    </th>
+
+
+    <tr dir-paginate="player in players|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
+    	<!--td>{{$index + currentPage*itemsPerPage +1}}</td-->
+    	<!--td style="color :red" ng-hide="{{player.imgOk}}">{{player.name}} {{player.lastname}}</td>
+      <td ng-show="{{player.imgOk}}">{{player.name}} {{player.lastname}}</td-->
+      <td ng-show="player.rank == player.rankAnterior">{{player.rank}}
+        <span class="glyphicon glyphicon-minus" style="color:grey; font-size:10px;" title="0"></span>
+      </td>
+      <td ng-show="player.rank < player.rankAnterior">{{player.rank}}
+        <span class="glyphicon glyphicon-triangle-top" style="color:green; font-size:10px;" title="{{player.rankAnterior - player.rank}}"></span>
+      </td>
+      <td ng-show="player.rank > player.rankAnterior">{{player.rank}}
+        <span class="glyphicon glyphicon-triangle-bottom" style="color:red; font-size:10px;" title="{{player.rank - player.rankAnterior}}"></span>
+      </td>
+      <td>{{player.name}} {{player.lastname}}</td>
+      <td>{{player.club}}</td>
+    	<td>{{player.points | number:2}}</td>
+      <td>{{player.times}}</td>
+      <td>{{player.draw}}</td>
+      <td>
+        <a class="btn btn-default btn-xs" href="/adm#/edit/{{player._id}}">
+          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+        </a>
+        <button type="button" class="btn btn-danger btn-xs" ng-click="deletePlayer(player)">
+          <span class="glyphicon glyphicon-trash" style="color:white" aria-hidden="true"></span>
+        </button>
+      </td>
+      <!--td>{{player.imgOk}}</td-->
+    </tr>
+  </table>
+
+</div>
+</div>
+
+<div class="text-center">
+  <dir-pagination-controls
+     max-size="7"
+     direction-links="true"
+     boundary-links="true" >
+  </dir-pagination-controls>
+</div>
+
+
+<!--input type="text" ng-model="currentPage"-->
+
+
+<!--div class="btn-group btn-group-justified" role="group"-->
+  <div class="text-center">
+		<a href='/adm#/create' class="btn btn-primary btn-lg"> Crear Jugador </a>
+    <h5>Mejor subida: {{masSube.name}} {{masSube.lastname}} (+{{masSube.rankAnterior-masSube.rank}})</h5>
+    <h5>Peor bajada: {{masBaja.name}} {{masBaja.lastname}} (-{{masBaja.rank-masBaja.rankAnterior}})</h5>
+  </div>
+<!--/div-->
+
+<br>
+
+<!--
+<div class="btn-group btn-group-justified" role="group">
+  <div class="btn-group">
+    <button type="button" class="btn btn-danger btn-md" ng-click="resetAll()"> 
+      Reset all 
+    </button>
+  </div>
+</div> -->
+<!--
+<form id        =  "uploadForm"
+     enctype   =  "multipart/form-data"
+     action    =  "/api/admin/players/upload"
+     method    =  "post" >
+<input type="file" name="playersFile" />
+<input type="submit" value="Upload File" name="submit">
+</form>
+-->

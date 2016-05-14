@@ -1,0 +1,164 @@
+<!-- inicio jugadores -->
+<div id="main-content">
+	<div class="container">
+
+		<div class="row">
+ 			<div class="col-lg-10 col-lg-offset-1 ">
+				<div class="title">Ranking del Futbol Uruguayo</div>
+					<div class="col-md-3 col-sm-2"><!-- FIXME: ¿por que no agarra el offset? -->
+					</div>
+					<div class="col-md-6 col-sm-8 bs-callout hidden-xs spacer">
+					    <div class="col-xs-6 col-md-6 text-center ">
+						<div class="profile-header-container">   
+					    		<div class="profile-header-img">
+								<img class="img-first" src="{{first.image}}" />
+								<div class="rank-label-container">
+							    		<span class="label label-default rank-label">{{first.points | number:2}} puntos</span>
+								</div>
+						    	</div>
+						</div> 
+					    </div>
+					    <div class="col-xs-6 col-md-6">
+						<div class="best-player">
+						    {{first.name}} {{first.lastname}} 
+						    
+						</div>
+						<p> 
+							<table class="table table-borderless">
+	
+								  <tr>
+									<td><strong>Ranking:</strong></td>
+									<td>{{first.rank}}</td>
+								  </tr>
+								  <tr>
+									<td><strong>Posición:</strong></td>
+									<td>{{first.position}}</td>
+								  </tr>
+								  <tr>
+									<td><strong>Equipo:</strong></td>
+									<td>{{first.club}}</td>
+								  </tr>		
+							  </table>
+						</p>
+					    </div>
+					</div>
+
+				<form class="form-inline text-center col-lg-6 col-lg-offset-3 col-sm-6 col-sm-offset-3 spacer">
+					<input type="text" ng-model="search" class="form-control" placeholder="Buscar jugador, equipo o posicion..." style="width:100%">
+				</form>
+
+			
+				<p>
+					<table class="table table-striped">
+					    <thead>
+					  	<th># <!--span title="Semana anterior" style:"font-size:5px;">(ant.)</span--></th>
+					  	<th>Jugador</th>
+					  	<th class="hidden-xs">Club</th>
+					  	<th>Puntaje</th>
+					    </thead>
+					    <tbody>
+						    <tr dir-paginate="player in players | orderBy : '-points' | filter:search | itemsPerPage:10">
+						    	<!-- LA DIFERENCIA ES: player.rank - player.rankAnterior -->
+						    	<td ng-show="player.rank == player.rankAnterior">{{player.rank}}
+									<span class="glyphicon glyphicon-minus" style="color:grey; font-size:10px;" title="0"></span>
+						    	</td>
+						    	<td ng-show="player.rank < player.rankAnterior">{{player.rank}}
+									<span class="glyphicon glyphicon-triangle-top" style="color:green; font-size:10px;" title="{{player.rankAnterior - player.rank}}"></span>
+						    	</td>
+						    	<td ng-show="player.rank > player.rankAnterior">{{player.rank}}
+									<span class="glyphicon glyphicon-triangle-bottom" style="color:red; font-size:10px;" title="{{player.rank - player.rankAnterior}}"></span>
+						    	</td>
+
+						    	<td>
+							   <a data-toggle="modal" data-target="#modalDetalle{{player.rank}}" style="cursor: pointer" ng-click="grafica(player)">{{player.name}} {{player.lastname}} &nbsp; <span class="glyphicon glyphicon-info-sign" ></span></a>
+								<!-- Modal -->
+								<div class="modal fade" id="modalDetalle{{player.rank}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+									  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									  <h4 class="modal-title" id="gridSystemModalLabel">{{player.name}} {{player.lastname}}</h4>
+								      </div>
+								      <div class="modal-body">	
+									<div class="row">								    
+									<div class="col-sm-4 text-center">
+										<img src="{{player.image}}" alt="" class="center-block img-responsive player" style="margin-bottom: 20px;">
+									</div><!--/col-->
+									<div class="col-sm-8">
+										<table class="table table-striped">
+											<tbody>
+											  <tr>
+												<td><strong>Posición:</strong></td>
+												<td>{{player.position}}</td>
+											  </tr>
+											  <tr>
+												<td><strong>Equipo:</strong></td>
+												<td>{{player.club}}</td>
+											  </tr>	
+											  <tr>
+												<td><strong>Ranking:</strong></td>
+												<td ng-show="player.rank == player.rankAnterior">{{player.rank}} &nbsp;
+													<span class="glyphicon glyphicon-minus" style="color:grey; font-size:10px;" title="0"></span>
+													(0)
+										    	</td>
+										    	<td ng-show="player.rank < player.rankAnterior">{{player.rank}} &nbsp;
+													<span class="glyphicon glyphicon-triangle-top" style="color:green; font-size:10px;"></span>
+													(+{{player.rankAnterior - player.rank}})
+										    	</td>
+										    	<td ng-show="player.rank > player.rankAnterior">{{player.rank}} &nbsp;
+													<span class="glyphicon glyphicon-triangle-bottom" style="color:red; font-size:10px;"></span>
+													(-{{player.rank - player.rankAnterior}})
+										    	</td>
+											  </tr>	
+											  <tr>
+												<td><strong>Puntaje:</strong></td>
+												<td>{{player.points | number:2}}</td>
+											  </tr>								  
+											</tbody>
+										  </table>
+									</div><!--/col--> 
+										<!-- GRAFICA DE EVOLUCION-->
+										<div class="col-xs-offset-1 col-xs-10 col-sm-8 col-md-8 col-lg-8">
+											<strong>Evolución:</strong>
+										<canvas id="line" class="chart chart-line" chart-data="data"
+										  chart-labels="labels" chart-legend="false" chart-series="series">
+										</canvas> 
+										</div>  
+									</div>
+								      </div>
+								      <div class="modal-footer">
+									<button type="button" class="btn btn-main" data-dismiss="modal">Cerrar</button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+
+							</td>
+						    	<td class="hidden-xs">{{player.club}}</td>
+						    	<td>{{player.points | number:2}}</td>
+							
+						    </tr>
+					    </tbody>
+					 </table>
+				</p>
+				<div class="text-center">
+					 <dir-pagination-controls
+					       max-size="5"
+					       direction-links="true"
+					       boundary-links="true" >
+					 </dir-pagination-controls>
+				</div>
+				<div class="text-center">
+					<a href="/#/vote"  class="btn btn-main"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Votar! </a>
+				</div>				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- fin jugadores -->	
+
+	
+
+

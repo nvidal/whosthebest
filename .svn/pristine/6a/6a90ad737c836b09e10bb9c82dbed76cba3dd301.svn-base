@@ -1,0 +1,76 @@
+<div class="page-header" style="text-align: center">
+	<h1>
+		<a class="btn btn-md btn-success" href="/adm#/list">
+			<span class="glyphicon glyphicon-arrow-left" style="color:white" aria-hidden="true"></span>
+		</a>
+		 Editar jugador
+	</h1>
+</div>
+
+<br>
+<form name="editForm" ng-submit="editPlayer(editForm.$valid)" novalidate class="col-lg-6 col-lg-offset-3"> 
+	
+	<div class="input-group input-group-md">
+	  	<span class="input-group-addon" id="sizing-addon1" >Nombre</span>
+	  	<input name="name" type="text" class="form-control" ng-model="playerEdition.name" required>
+    </div>
+    <div ng-messages="editForm.name.$error" ng-show="showErrors" style="color:red" role="alert">
+			<p ng-message="required">Debe ingresar Nombre.</p>
+	</div>
+	<br>
+	<div class="input-group input-group-md">
+	  <span class="input-group-addon" id="sizing-addon1">Apellido</span>
+	  <input name="lastname" type="text" class="form-control" ng-model="playerEdition.lastname" required>
+	</div>
+	<div ng-messages="editForm.lastname.$error" ng-show="showErrors" style="color:red" role="alert">
+			<p ng-message="required">Debe ingresar Apellido</p>
+	</div>
+	<br>
+	<div class="input-group input-group-md">
+	  <span class="input-group-addon" id="sizing-addon1">Posicion</span>
+	  <!--input name="position" type="text" class="form-control" ng-model="playerEdition.position"-->
+	  <select class="form-control" id="selpos" ng-model="playerEdition.position" name="position" required>
+	    <option ng-repeat="p in positions">{{p.name}}</option>
+	  </select>
+	</div>
+	<div ng-messages="editForm.position.$error" ng-show="showErrors" style="color:red" role="alert">
+			<p ng-message="required">Debe ingresar la Posicion</p>
+	</div>
+
+	<br>
+	<div class="input-group input-group-md">
+	  <span class="input-group-addon" id="sizing-addon1">Club</span>
+	  <!--input name="club" type="text" class="form-control" ng-model="playerEdition.club"-->
+	  <select class="form-control" id="selclub" ng-model="playerEdition.club" name="club" required>
+	    <option ng-repeat="c in clubs">{{c.name}}</option>
+	  </select>
+	</div>
+	<div ng-messages="editForm.club.$error" ng-show="showErrors" style="color:red" role="alert">
+			<p ng-message="required">Debe ingresar el Club</p>
+	</div>
+
+	<br>
+	
+	<div class="input-group input-group-md">
+	  <span class="input-group-addon" id="sizing-addon1">URL imagen</span>
+	  <input type="text" class="form-control" ng-model="playerEdition.image">
+	</div>
+	
+	
+
+	
+	<div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 media-center">
+	    <a href="" class="thumbnail">
+	      <img src="{{playerEdition.image}}">
+	    </a>
+  	</div>
+	
+	
+	<br>
+	<div class="btn-group btn-group-justified" role="group">
+		<div class="btn-group" role="group">
+			<!--<input type="button" class="btn btn-lg btn-success" ng-disabled="myForm.name.$invalid" value="Create" ng-click="newPlayer()"></input>-->
+			<input type="submit" class="btn btn-lg btn-success" value="Editar"></input>
+		</div>
+	</div>
+</form>

@@ -10,7 +10,7 @@ app.controller('RankCtrl', ['$scope', '$resource',
 			for(i = 0; i< players.length; i++){
 				players[i].rank = i+1;
 				players[i].nombreCompleto = players[i].name+" "+players[i].lastname;
-				/*if (players[i].rankAnterior != 0){
+				if (players[i].rankAnterior != 0){
 					if (players[i].rank - players[i].rankAnterior > maxBajada){
 						maxBajada = players[i].rank - players[i].rankAnterior;
 						$scope.masBaja = players[i];
@@ -19,7 +19,7 @@ app.controller('RankCtrl', ['$scope', '$resource',
 						maxSubida = players[i].rank - players[i].rankAnterior;
 						$scope.masSube = players[i];
 					}
-				}*/
+				}
 			}
 			$scope.players = players;
 			$scope.first = players[0];

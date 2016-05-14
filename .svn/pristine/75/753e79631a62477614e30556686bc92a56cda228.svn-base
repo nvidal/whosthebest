@@ -1,0 +1,76 @@
+<div class="page-header" style="text-align: center">
+	<h1>
+		<a class="btn btn-md btn-success" href="/adm#/list">
+			<span class="glyphicon glyphicon-arrow-left" style="color:white" aria-hidden="true"></span>
+		</a>
+		 Nuevo Jugador
+	</h1>
+</div>
+
+<br>
+<form name="playerForm" ng-submit="createPlayer(playerForm.$valid)" novalidate class="col-lg-6 col-lg-offset-3">  
+	<div class="input-group input-group-md">
+	  	<span class="input-group-addon" id="sizing-addon1" >Nombre</span>
+	  	<input name="name" type="text" class="form-control" ng-model="player.name" required>
+    </div>
+    <div ng-messages="playerForm.name.$error" ng-show="showErrors" style="color:red" role="alert">
+			<p ng-message="required">Nombre requerido.</p>
+	</div>
+
+	<br>
+	<div class="input-group input-group-md">
+	  <span class="input-group-addon" id="sizing-addon1">Apellido</span>
+	  <input name="lastname" type="text" class="form-control" ng-model="player.lastname" required>
+	</div>
+	<div ng-messages="playerForm.lastname.$error" ng-show="showErrors" style="color:red" role="alert">
+			<p ng-message="required">Apellido requerido.</p>
+	</div>
+
+	<br>
+	<div class="input-group input-group-md">
+	  <span class="input-group-addon" id="sizing-addon1">Posicion</span>
+	  <!--input name="position" type="text" class="form-control" ng-model="player.position" required-->
+	  <select class="form-control" id="selpos" ng-model="player.position" name="position" required>
+	    <option ng-repeat="p in positions">{{p.name}}</option>
+	  </select>
+	</div>
+	<div ng-messages="playerForm.position.$error" ng-show="showErrors" style="color:red" role="alert">
+			<p ng-message="required">Posicion requerida.</p>
+	</div>
+
+	<br>
+	<div class="input-group input-group-md">
+	  <span class="input-group-addon" id="sizing-addonx">Puestos</span>
+	  <input name="puestos" type="text" class="form-control" ng-model="player.puestos">
+	</div>
+	<!--div ng-messages="playerForm.positions.$error" ng-show="showErrors" style="color:red" role="alert">
+			<p ng-message="required">Position is required.</p>
+	</div-->
+
+	<br>
+
+	<div class="input-group input-group-md">
+	  <span class="input-group-addon" id="sizing-addon1">Club</span>
+	  <select class="form-control" id="selclub" ng-model="player.club" name="club" required>
+	    <option ng-repeat="c in clubs">{{c.name}}</option>
+	  </select>
+	  <!--input name="club" type="text" class="form-control" ng-model="player.club"-->
+	</div>
+	<div ng-messages="playerForm.club.$error" ng-show="showErrors" style="color:red" role="alert">
+			<p ng-message="required">Club requerido.</p>
+	</div>
+
+	<br>
+	<div class="input-group input-group-md">
+	  <span class="input-group-addon" id="sizing-addon1">URL image</span>
+	  <input type="text" class="form-control" ng-model="player.image">
+	</div>
+
+	<br>
+	<div class="btn-group btn-group-justified" role="group">
+		<div class="btn-group" role="group">
+			<!--<input type="button" class="btn btn-lg btn-success" ng-disabled="myForm.name.$invalid" value="Create" ng-click="newPlayer()"></input>-->
+			<input type="submit" class="btn btn-lg btn-success" value="Crear"></input>
+		</div>
+	</div>
+</form>

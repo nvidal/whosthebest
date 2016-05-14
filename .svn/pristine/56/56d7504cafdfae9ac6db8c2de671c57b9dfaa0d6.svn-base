@@ -1,0 +1,87 @@
+<!-- inicio jugadores -->
+<div id="main-content">
+	<div class="container">
+		<div class="row hidden-xs">
+			<div class="title">¿Quién es el mejor?
+			</div>
+			<br>
+		</div>
+		<div class="row">	
+			<nav class="hidden-lg hidden-md hidden-sm">
+			  <ul class="pager">
+				<li><a href="#/ranking" ><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Ver Ranking </a></li>
+			  </ul>
+			</nav>			
+			<div class="col-md-3 col-md-offset-3 col-sm-5 col-sm-offset-1 col-xs-6">
+				<p>
+					<h4>{{player1.name}} {{player1.lastname}}</h4>
+				</p>						
+				<p class="thumbnail">
+					<img src="{{player1.image}}" alt="" class="player" ng-click="vot1()">
+				</p>
+				<p>
+					<table class="table table-user-information hidden-xs">
+						<tbody>
+						  <tr>
+							<td><strong>Posición:</strong></td>
+							<td>{{player1.position}}</td>
+						  </tr>
+						  <tr>
+							<td><strong>Equipo:</strong></td>
+							<td>{{player1.club}}</td>
+						  </tr>								  
+						</tbody>
+					  </table>
+					  <div class="text-center">
+						<button class="btn btn-main"  role="button" ng-click="vot1()">
+			    				<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Votar
+						</button>
+					 </div>
+					<div class="spacer">
+					</div>
+				</p>
+			</div>
+			<div class="col-md-3 col-sm-5 col-xs-6">
+				<p>
+					<h4>{{player2.name}} {{player2.lastname}}</h4>						
+				</p>
+				<p class="thumbnail">
+					<img src="{{player2.image}}" alt="" class="player" ng-click="vot2()">
+				</p>
+				<p>
+					<table class="table table-user-information hidden-xs">
+						<tbody>
+						  <tr>
+							<td><strong>Posición:</strong></td>
+							<td>{{player2.position}}</td>
+						  </tr>
+						  <tr>
+							<td><strong>Equipo:</strong></td>
+							<td>{{player2.club}}</td>
+						  </tr>								  
+						</tbody>
+					  </table>
+					  <div class="text-center">
+						<button class="btn btn-main" role="button" ng-click="vot2()">
+			    				<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Votar
+						</button>
+					 </div>
+					<div class="spacer">
+					</div>
+				</p>
+			</div>
+		</div>
+
+		<nav>
+		  <ul class="pager">
+			<li><a href="#/vote" >Saltear <span aria-hidden="true">&rarr;</span></a></li>
+		  </ul>
+		</nav>	
+	</div>
+</div>
+
+<!-- fin jugadores -->	
+
+	
+
+
