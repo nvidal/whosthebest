@@ -17,7 +17,37 @@ app.controller('PlayerCtrl', ['$scope', '$resource', '$location', 'filterFilter'
 		$scope.players = [];
 		var Player = $resource('/api/admin/players');
 		Player.query(function(players){
+			$scope.players = [];
+			var maxSubida = 0;
+			var maxBajada = 0;
+			//Agrego rank a cada jugador
+			for(i = 0; i< players.length; i++){
+				players[i].rank = i+1;
+				players[i].nombreCompleto = players[i].name+" "+players[i].lastname;
+				if (players[i].rankAnterior != 0){
+					if (players[i].rank - players[i].rankAnterior > maxBajada){
+						maxBajada = players[i].rank - players[i].rankAnterior;
+						$scope.masBaja = players[i];
+					}
+					if (players[i].rank - players[i].rankAnterior < maxSubida){
+						maxSubida = players[i].rank - players[i].rankAnterior;
+						$scope.masSube = players[i];
+					}
+				}
+			}
 			$scope.players = players;
+		});
+
+		$scope.clubs = [];
+		var Clubs = $resource('/api/clubs/');
+		Clubs.query(function(clubs){
+			$scope.clubs = clubs;
+		});
+
+		$scope.positions = [];
+		var Pos = $resource('/api/positions/');
+		Pos.query(function(pos){
+			$scope.positions = pos;
 		});
 
 		$scope.sort = function(keyname){
@@ -31,7 +61,7 @@ app.controller('PlayerCtrl', ['$scope', '$resource', '$location', 'filterFilter'
 				var Players = $resource('/api/admin/players');
 				Players.save($scope.player, function(){
 					alert('New player created!');
-					$location.path('/');
+					$location.path('/list');
 				});
 			}
 			else{
@@ -45,7 +75,7 @@ app.controller('PlayerCtrl', ['$scope', '$resource', '$location', 'filterFilter'
 			if (res == true) {
 				var Players = $resource('/api/admin/players/:id');
 				Players.delete({ id : player._id }, function(player){
-					$location.path('/');
+					$location.path('/list');
 				});
 
 			    alert("Jugador eliminado");
@@ -88,6 +118,18 @@ app.controller('PlayerEditCtrl', ['$scope', '$resource', '$location', '$routePar
 			$scope.playerEdition = player;
 		});
 
+		$scope.clubs = [];
+		var Clubs = $resource('/api/clubs/');
+		Clubs.query(function(clubs){
+			$scope.clubs = clubs;
+		});
+
+		$scope.positions = [];
+		var Pos = $resource('/api/positions/');
+		Pos.query(function(pos){
+			$scope.positions = pos;
+		});
+		
 		$scope.editPlayer = function(){
 			var Players = $resource('/api/admin/players/:id', { id : '@_id' }, 
 				{ update : {method : 'PUT'} });

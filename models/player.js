@@ -1,6 +1,7 @@
 var Config = require('../config');
 var mongoose = require('mongoose');
 var mongoosePaginate = require('mongoose-paginate');
+var PuestoSchema = require('./puesto');
 
 Schema = mongoose.Schema;
 
@@ -9,6 +10,7 @@ var PlayerSchema = new Schema({
 	lastname : String,
 	club : String,
 	position : String,
+	puestos : [PuestoSchema],
 	image : { type : String, default : Config.default.urlImg },
 	points : { type : Number, default : Config.default.points},
 	times : { type : Number, default : Config.default.times},

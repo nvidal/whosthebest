@@ -4,10 +4,22 @@ app.controller('RankCtrl', ['$scope', '$resource',
 		Players.query(function(players){
 			
 			$scope.players = [];
+			var maxSubida = 0;
+			var maxBajada = 0;
 			//Agrego rank a cada jugador
 			for(i = 0; i< players.length; i++){
 				players[i].rank = i+1;
 				players[i].nombreCompleto = players[i].name+" "+players[i].lastname;
+				if (players[i].rankAnterior != 0){
+					if (players[i].rank - players[i].rankAnterior > maxBajada){
+						maxBajada = players[i].rank - players[i].rankAnterior;
+						$scope.masBaja = players[i];
+					}
+					if (players[i].rank - players[i].rankAnterior < maxSubida){
+						maxSubida = players[i].rank - players[i].rankAnterior;
+						$scope.masSube = players[i];
+					}
+				}
 			}
 			$scope.players = players;
 			$scope.first = players[0];

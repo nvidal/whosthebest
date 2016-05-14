@@ -13,6 +13,7 @@ var admin_stats = require('./routes/admin-stats');
 var admin_historial = require('./routes/admin-historial');
 var clubs = require('./routes/clubs');
 var positions = require('./routes/positions');
+var puestos = require('./routes/puestos');
 
 var app = express();
 
@@ -87,12 +88,14 @@ app.use('/api/admin/stats', admin_stats);
 app.use('/api/admin/historial', admin_historial);
 app.use('/api/clubs', clubs);
 app.use('/api/positions', positions);
+app.use('/api/puestos', puestos);
 
 // MODELS
 require('./models/player');
 require('./models/playerHist');
 require('./models/club');
 require('./models/position');
+require('./models/puesto');
 
 
 // catch 404 and forward to error handler

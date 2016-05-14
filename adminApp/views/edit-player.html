@@ -8,28 +8,30 @@
 </div>
 
 <br>
-<form name="editForm" ng-submit="editPlayer(editForm.$valid)" novalidate> 
+<form name="editForm" ng-submit="editPlayer(editForm.$valid)" novalidate class="col-lg-6 col-lg-offset-3"> 
+	
 	<div class="input-group input-group-md">
 	  	<span class="input-group-addon" id="sizing-addon1" >Nombre</span>
 	  	<input name="name" type="text" class="form-control" ng-model="playerEdition.name" required>
     </div>
     <div ng-messages="editForm.name.$error" ng-show="showErrors" style="color:red" role="alert">
-			<p ng-message="required">Name is required.</p>
+			<p ng-message="required">Debe ingresar Nombre.</p>
 	</div>
-
 	<br>
 	<div class="input-group input-group-md">
 	  <span class="input-group-addon" id="sizing-addon1">Apellido</span>
-	  <input name="lastname" type="text" class="form-control" ng-model="playerEdition.lastname">
+	  <input name="lastname" type="text" class="form-control" ng-model="playerEdition.lastname" required>
 	</div>
 	<div ng-messages="editForm.lastname.$error" ng-show="showErrors" style="color:red" role="alert">
 			<p ng-message="required">Debe ingresar Apellido</p>
 	</div>
-
 	<br>
 	<div class="input-group input-group-md">
 	  <span class="input-group-addon" id="sizing-addon1">Posicion</span>
-	  <input name="position" type="text" class="form-control" ng-model="playerEdition.position">
+	  <!--input name="position" type="text" class="form-control" ng-model="playerEdition.position"-->
+	  <select class="form-control" id="selpos" ng-model="playerEdition.position" name="position" required>
+	    <option ng-repeat="p in positions">{{p.name}}</option>
+	  </select>
 	</div>
 	<div ng-messages="editForm.position.$error" ng-show="showErrors" style="color:red" role="alert">
 			<p ng-message="required">Debe ingresar la Posicion</p>
@@ -38,7 +40,10 @@
 	<br>
 	<div class="input-group input-group-md">
 	  <span class="input-group-addon" id="sizing-addon1">Club</span>
-	  <input name="club" type="text" class="form-control" ng-model="playerEdition.club">
+	  <!--input name="club" type="text" class="form-control" ng-model="playerEdition.club"-->
+	  <select class="form-control" id="selclub" ng-model="playerEdition.club" name="club" required>
+	    <option ng-repeat="c in clubs">{{c.name}}</option>
+	  </select>
 	</div>
 	<div ng-messages="editForm.club.$error" ng-show="showErrors" style="color:red" role="alert">
 			<p ng-message="required">Debe ingresar el Club</p>
