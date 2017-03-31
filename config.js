@@ -14,7 +14,7 @@ config.default.urlImg = 'http://www.goear.com/static/bands/1/d/5/b/a/1d5ba847650
 // Seleccion random
 config.select.ventana = 0.2; // % del total para la ventana de seleccion
 config.select.minLength = 50; // minimo para usar ventana.
-config.select.minVentana = 5; // ventana minima de seleccion
+config.select.minVentana = 2; // ventana minima de seleccion
 
 // Vote
 config.vote.NIVEL_PROTEGIDO = 50; // multiplicador para nivel protegido
