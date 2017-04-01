@@ -124,7 +124,6 @@ router.get('/random', function(req, res){
 		while (j1 === j2){
 			j2 = Math.floor(Math.random() * (b-a)) + a;
 		};
-
 		var ranPlayer = [players[j1], players[j2]];
 		Player.update(
 		{	_id: ranPlayer[0]._id },
@@ -278,7 +277,7 @@ router.get('/historial/:id', function(req, res){
 router.get('/mejores/:position/:cant', function(req, res){
 	Player = mongoose.model('Player');
 	Player.find( {position : req.params.position}).sort({ points : -1})
-		.limit(req.params.cant).exec(function(err, players){
+		.limit(parseInt(req.params.cant)).exec(function(err, players){
 			if (err) throw err;
 
 			res.json(players);
@@ -291,7 +290,7 @@ router.get('/mejores/:position/:cant/:club', function(req, res){
 
 	Player = mongoose.model('Player');
 	Player.find( {position : req.params.position, club : req.params.club }).sort({ points : -1})
-		.limit(req.params.cant).exec(function(err, players){
+		.limit(parseInt(req.params.cant)).exec(function(err, players){
 			if (err) throw err;
 
 			res.json(players);

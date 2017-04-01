@@ -219,7 +219,7 @@ router.post('/reset', isAuthenticated, function(req, res){
 router.post('/upload', isAuthenticated, function(req, res){
 
 	// MULTER - SUBIR ARCHIVOS
-	var storage = multer.diskStorage({
+	/*var storage = multer.diskStorage({
 	  destination : function (req, file, cb){
 	    cb(null, './adminApp/files/')
 	  },
@@ -234,18 +234,22 @@ router.post('/upload', isAuthenticated, function(req, res){
 			return res.end("Error uploading file."+err);
 			//throw err;
 
+console.log("Antes");
 		insertFromFile();
+console.log("Despues");
 		res.end("File is uploaded");
-	})
+	})*/
+
+	insertFromFile();
 });
 
 function insertFromFile(){
-
+console.log("adentro");
 	var Player = mongoose.model('Player');
 	var playerSet = require('../adminApp/files/playersFile.json');//[{"name":"j1"},{"name":"j2"},{"name":"j3"}];
 
 	//var jugCol = [{"position":"Arquero","club":"CERRO","name":"Sebastián","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=47612","lastname":"Britos"},{"position":"Arquero","club":"CERRO","name":"Sebastián","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=47611","lastname":"Fuentes"},{"position":"Arquero","club":"CERRO","name":"Sebastián","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=55844","lastname":"Medina"},{"position":"Defensa","club":"CERRO","name":"Agustín","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=50047","lastname":"Sant' Anna"},{"position":"Defensa","club":"CERRO","name":"Andrés","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=55321","lastname":"Ravecca"},{"position":"Defensa","club":"CERRO","name":"Angelo","image":"http://www.auf.org.uy/Portal/ImageViewer.ashx?id=50048","lastname":"Pizzorno"}];
-console.log("-------");
+console.log("-------"+playerSet.length);
 //var colec = jugCol.jugador;
 //console.log(jugCol.jugador);
 
@@ -253,6 +257,7 @@ console.log("-------");
 	
 	/*console.log("insertado");*/
 	for (var i = playerSet.length ; i >= 0; i--) {
+		console.log("procesando "+i);
 		try {
 			Player.create(playerSet[i], onInsert);
 		} catch(error){
