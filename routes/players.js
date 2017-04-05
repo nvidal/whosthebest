@@ -42,6 +42,15 @@ router.get('/top', function(req, res){
 
 });
 
+// GET getTopTen
+router.get('/top10', function(req, res){
+	Player = mongoose.model('Player');
+	Player.find({}).sort({points : -1}).limit(10).exec(function(err, players) {
+    	return res.json({'top10' : players });
+  	});
+
+});
+
 // GET paginado
 router.get('/top/:pag', function(req, res){
 	Player = mongoose.model('Player');
